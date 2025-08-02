@@ -76,6 +76,14 @@ export default function Header() {
             />
             <span className="tagline">Aspire to Inspire <br /> Before you Expire</span>
           </div>
+          <button
+            className="hamburger"
+            onClick={toggleMobileMenu}
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isMobileMenuOpen}
+          >
+            {isMobileMenuOpen ? '✖' : '☰'}
+          </button>
           <nav className={`nav ${isMobileMenuOpen ? 'open' : ''}`} aria-label="Main navigation">
             <div className="nav-item">
               <Link href="/" className="nav-link" aria-current="page">Home</Link>
@@ -216,14 +224,6 @@ export default function Header() {
               </a>
             </div>
           </nav>
-          <button
-            className="hamburger"
-            onClick={toggleMobileMenu}
-            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={isMobileMenuOpen}
-          >
-            {isMobileMenuOpen ? '✖' : '☰'}
-          </button>
         </div>
       </div>
 
@@ -304,8 +304,8 @@ export default function Header() {
         }
 
         .social-icon {
-          width: 28px;
-          height: 28px;
+          width: 32px;
+          height: 32px;
           transition: all 0.3s ease;
           padding: 0.3rem;
           border-radius: 50%;
@@ -346,7 +346,7 @@ export default function Header() {
           align-items: center;
           padding: 1rem 0;
           border-bottom: 2px solid #1e293b;
-          flex-wrap: wrap;
+          flex-wrap: nowrap;
           gap: 1rem;
         }
 
@@ -382,9 +382,9 @@ export default function Header() {
 
         .nav {
           display: flex;
-          gap: 1.5rem;
+          gap: 1rem;
           align-items: center;
-          flex-wrap: wrap;
+          flex-wrap: nowrap;
           font-family: 'Poppins', sans-serif;
         }
 
@@ -445,7 +445,7 @@ export default function Header() {
           position: absolute;
           top: 100%;
           left: 0;
-          background: linear-gradient(180deg, #16a34a, #22c55e);
+          background: linear-gradient(180deg, #ff0000, #c72525);
           border: 2px solid #1e293b;
           border-radius: 12px;
           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
@@ -487,7 +487,7 @@ export default function Header() {
         .dropdown a:hover,
         .dropdown a:focus {
           color: #facc15;
-          background: #15803d;
+          background: #b91c1c;
           transform: scale(1.02);
           outline: 2px solid #facc15;
           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -538,6 +538,7 @@ export default function Header() {
           text-transform: uppercase;
           animation: pulse 2s infinite;
           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+          white-space: nowrap;
         }
 
         .apply-button:hover,
@@ -574,6 +575,7 @@ export default function Header() {
           padding: 0.5rem;
           border-radius: 50%;
           z-index: 4100;
+          order: 2;
         }
 
         .hamburger:hover,
@@ -665,7 +667,7 @@ export default function Header() {
 
         @media (max-width: 1024px) {
           .nav {
-            gap: 1rem;
+            gap: 0.8rem;
           }
 
           .search-bar input {
@@ -685,12 +687,13 @@ export default function Header() {
           }
 
           .social-icon {
-            width: 24px;
-            height: 24px;
+            width: 28px;
+            height: 28px;
           }
 
           .nav-link {
             font-size: 1.1rem;
+            padding: 0.5rem 0.8rem;
           }
 
           .dropdown a {
@@ -733,9 +736,7 @@ export default function Header() {
 
           .hamburger {
             display: block;
-            position: fixed;
-            top: 1rem;
-            right: 1rem;
+            position: static;
             z-index: 4100;
             background: rgba(255, 255, 255, 0.2);
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -815,7 +816,7 @@ export default function Header() {
             position: static;
             border: 2px solid #ffffff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            background: linear-gradient(180deg, #16a34a, #22c55e);
+            background: linear-gradient(180deg, #ff0000, #c72525);
             padding: 0.75rem 1rem;
             border-radius: 10px;
             z-index: 4000;
@@ -841,7 +842,7 @@ export default function Header() {
 
           .dropdown a:hover,
           .dropdown a:focus {
-            background: #15803d;
+            background: #b91c1c;
             transform: translateX(5px);
             color: #facc15;
           }
@@ -898,8 +899,8 @@ export default function Header() {
           }
 
           .social-icon {
-            width: 24px;
-            height: 24px;
+            width: 28px;
+            height: 28px;
           }
         }
 
@@ -934,8 +935,8 @@ export default function Header() {
           }
 
           .social-icon {
-            width: 20px;
-            height: 20px;
+            width: 24px;
+            height: 24px;
           }
 
           .search-bar input {
