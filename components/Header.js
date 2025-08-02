@@ -51,8 +51,8 @@ export default function Header() {
             <Image
               src="/logo.png"
               alt="St Johns Training College Logo"
-              width={120}
-              height={120}
+              width={60}
+              height={60}
               className="logo"
             />
             <span className="tagline">Aspire to Inspire <br /> Before you Expire</span>
