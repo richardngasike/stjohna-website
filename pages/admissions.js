@@ -93,7 +93,7 @@ export default function Admissions() {
         {/* Brochure Image */}
         <div style={styles.brochureContainer}>
           <Image
-            src="/brochure.jpg" // Fixed typo from /bronchure.jpg
+            src="/bronchure.jpg" // Fixed typo from /bronchure.jpg
             alt="Courses Brochure"
             width={1200}
             height={675} // 16:9 aspect ratio
