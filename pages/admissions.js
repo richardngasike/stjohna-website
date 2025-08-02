@@ -553,9 +553,27 @@ export default function Admissions() {
           }
           div[style*="width: '300px'"], div[style*="width: '200px'"] {
             width: 100% !important;
+            max-width: 300px !important;
+            margin: 0 auto 1rem !important;
           }
           ul[style*="paddingLeft: '1.5rem'"] {
             padding-left: 1rem !important;
+          }
+          a[style*="background: linear-gradient(45deg, #ff0000ff, #9b00009c)"] {
+            background: linear-gradient(45deg, #ff3333, #cc0000) !important;
+            width: 100% !important;
+            max-width: 300px !important;
+            display: block !important;
+            margin: 1rem auto !important;
+            text-align: center !important;
+            border-radius: 12px !important;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2) !important;
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+          }
+          a[style*="background: linear-gradient(45deg, #ff0000ff, #9b00009c)"]:hover {
+            background: linear-gradient(45deg, #cc0000, #990000) !important;
+            transform: scale(1.05) !important;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3) !important;
           }
         }
 
@@ -611,9 +629,27 @@ export default function Admissions() {
           }
           div[style*="width: '300px'"], div[style*="width: '200px'"] {
             width: 100% !important;
+            max-width: 250px !important;
+            margin: 0 auto 0.75rem !important;
           }
           ul[style*="paddingLeft: '1.5rem'"] {
             padding-left: 0.75rem !important;
+          }
+          a[style*="background: linear-gradient(45deg, #ff0000ff, #9b00009c)"] {
+            background: linear-gradient(45deg, #ff3333, #cc0000) !important;
+            width: 100% !important;
+            max-width: 250px !important;
+            display: block !important;
+            margin: 0.75rem auto !important;
+            text-align: center !important;
+            border-radius: 10px !important;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+          }
+          a[style*="background: linear-gradient(45deg, #ff0000ff, #9b00009c)"]:hover {
+            background: linear-gradient(45deg, #cc0000, #990000) !important;
+            transform: scale(1.05) !important;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25) !important;
           }
         }
 
@@ -669,9 +705,27 @@ export default function Admissions() {
           }
           div[style*="width: '300px'"], div[style*="width: '200px'"] {
             width: 100% !important;
+            max-width: 200px !important;
+            margin: 0 auto 0.5rem !important;
           }
           ul[style*="paddingLeft: '1.5rem'"] {
             padding-left: 0.5rem !important;
+          }
+          a[style*="background: linear-gradient(45deg, #ff0000ff, #9b00009c)"] {
+            background: linear-gradient(45deg, #ff3333, #cc0000) !important;
+            width: 100% !important;
+            max-width: 200px !important;
+            display: block !important;
+            margin: 0.5rem auto !important;
+            text-align: center !important;
+            border-radius: 8px !important;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+          }
+          a[style*="background: linear-gradient(45deg, #ff0000ff, #9b00009c)"]:hover {
+            background: linear-gradient(45deg, #cc0000, #990000) !important;
+            transform: scale(1.05) !important;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2) !important;
           }
         }
       `}</style>
@@ -823,9 +877,9 @@ const styles = {
     transition: 'background 0.3s ease, transform 0.3s ease',
     width: '30%',
     boxSizing: 'border-box',
-    marginTop: '1rem',   
+    marginTop: '1rem',
     ':hover': {
-      background: 'linear-gradient(45deg, #0f2b24, #1a3c34)',
+      background: 'linear-gradient(45deg, #cc0000, #990000)',
       transform: 'scale(1.02)',
     },
   },
@@ -849,6 +903,7 @@ const styles = {
     display: 'flex',
     gap: '2rem',
     alignItems: 'center',
+    flexWrap: 'wrap',
   },
   imageWrapper: {
     width: '300px',
@@ -857,6 +912,7 @@ const styles = {
   },
   textWrapper: {
     flex: 1,
+    minWidth: '200px',
   },
   timeline: {
     listStyle: 'none',
