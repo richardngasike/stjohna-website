@@ -1,4 +1,3 @@
-// pages/index.js
 import Head from 'next/head';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -10,14 +9,19 @@ export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
     {
-      image: '/slide1.jpg',
+      image: '/slider5.jpg',
       title: 'Welcome to St. John Training College',
       description: 'Empowering futures through world-class education.',
     },
     {
-      image: '/slide2.jpg',
+      image: '/slide1.jpg',
       title: 'Innovative Learning Environment',
       description: 'Explore our state-of-the-art facilities.',
+    },
+    {
+      image: '/slide2.jpg',
+      title: 'Nurturing Talents',
+      description: 'We support every talent through our proffessional activities.',
     },
     {
       image: '/slide3.jpg',
@@ -25,7 +29,7 @@ export default function Home() {
       description: 'Join a community of diverse and passionate students.',
     },
     {
-      image: '/slide4.jpg',
+      image: '/slide6.jpg',
       title: 'Achieve Your Dreams',
       description: 'Unlock your potential with our programs.',
     },
@@ -37,6 +41,15 @@ export default function Home() {
     }, 5000);
     return () => clearInterval(interval);
   }, [slides.length]);
+
+  // Functions to handle manual navigation
+  const goToNextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const goToPreviousSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
 
   return (
     <div>
@@ -69,6 +82,21 @@ export default function Home() {
               </div>
             </div>
           ))}
+          {/* Navigation Buttons */}
+          <button
+            className="carousel-nav prev"
+            onClick={goToPreviousSlide}
+            aria-label="Previous Slide"
+          >
+            &#10094;
+          </button>
+          <button
+            className="carousel-nav next"
+            onClick={goToNextSlide}
+            aria-label="Next Slide"
+          >
+            &#10095;
+          </button>
         </section>
 
         <section className="section">
@@ -192,7 +220,64 @@ export default function Home() {
           font-family: 'Roboto', sans-serif;
         }
 
-        
+
+        .carousel-text p {
+          font-size: 1.2rem;
+          margin-bottom: 1rem;
+        }
+
+        .carousel-text button {
+          padding: 0.5rem 1rem;
+          background: #28a745;
+          color: white;
+          border: none;
+          cursor: pointer;
+          font-size: 1rem;
+          border-radius: 4px;
+          transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .carousel-text button:hover,
+        .carousel-text button:focus {
+          background: #218838;
+          transform: scale(1.05);
+          outline: 2px solid #ffeb3b;
+        }
+
+        .carousel-nav {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background: rgba(0, 0, 0, 0.5);
+          color: white;
+          border: none;
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          font-size: 1.5rem;
+          transition: background 0.3s ease, transform 0.3s ease;
+          z-index: 10;
+        }
+
+        .carousel-nav:hover,
+        .carousel-nav:focus {
+          background: rgba(0, 0, 0, 0.8);
+          transform: translateY(-50%) scale(1.1);
+          outline: 2px solid #ffeb3b;
+        }
+
+        .carousel-nav.prev {
+          left: 10px;
+        }
+
+        .carousel-nav.next {
+          right: 10px;
+        }
+
         .section {
           margin: 2rem 0;
         }
@@ -303,6 +388,12 @@ export default function Home() {
             padding: 0.4rem 0.8rem;
             font-size: 0.9rem;
           }
+
+          .carousel-nav {
+            width: 35px;
+            height: 35px;
+            font-size: 1.3rem;
+          }
         }
 
         @media (max-width: 768px) {
@@ -349,6 +440,12 @@ export default function Home() {
             padding: 0.4rem 0.8rem;
             font-size: 0.9rem;
           }
+
+          .carousel-nav {
+            width: 30px;
+            height: 30px;
+            font-size: 1.2rem;
+          }
         }
 
         @media (max-width: 480px) {
@@ -390,6 +487,12 @@ export default function Home() {
           .carousel-text button {
             padding: 0.3rem 0.7rem;
             font-size: 0.8rem;
+          }
+
+          .carousel-nav {
+            width: 25px;
+            height: 25px;
+            font-size: 1rem;
           }
         }
       `}</style>
