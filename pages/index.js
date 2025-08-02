@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import SchoolListing from '../components/SchoolListing';
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -98,7 +99,7 @@ export default function Home() {
             &#10095;
           </button>
         </section>
-
+           <SchoolListing />
         <section className="section">
           <h2>About St Johns Training College</h2>
           <p>
