@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { useState } from 'react';
@@ -86,17 +87,18 @@ export default function Admissions() {
     <div style={styles.container}>
       <Head>
         <title>Admissions - University Name</title>
-        <meta name="description" content="Apply to University Name for Diploma, Certificate, and Short Courses" />
+        <meta name="description" content="Join University Name for Diploma, Certificate, and Short Courses. Apply online, via KUCCPS, or download our application form." />
       </Head>
       <Header />
       <main style={styles.main}>
         {/* Brochure Image */}
         <div style={styles.brochureContainer}>
           <Image
-            src="/bronchure.jpg" // Fixed typo from /bronchure.jpg
-            alt="Courses Brochure"
+            src="/brochure.jpg"
+            alt="University Name Courses Brochure featuring Diploma, Certificate, and Short Courses"
+            layout="responsive"
             width={1200}
-            height={675} // 16:9 aspect ratio
+            height={675}
             objectFit="cover"
             objectPosition="center"
             quality={85}
@@ -104,10 +106,50 @@ export default function Admissions() {
         </div>
 
         <h1 style={styles.title}>Admissions Application</h1>
+
+        {/* Admissions Process Timeline */}
         <section style={styles.section}>
-          <h2 style={styles.sectionTitle}>Application Form</h2>
+          <h2 style={styles.sectionTitle}>Admissions Timeline</h2>
+          <p style={styles.sectionText}>Plan your application with our key dates and deadlines.</p>
+          <ul style={styles.timeline}>
+            <li style={styles.timelineItem}>
+              <span style={styles.timelineDate}>October 1st</span>: Applications Open
+            </li>
+            <li style={styles.timelineItem}>
+              <span style={styles.timelineDate}>December 1st</span>: Application Deadline
+            </li>
+            <li style={styles.timelineItem}>
+              <span style={styles.timelineDate}>January 15th</span>: Admission Results Released
+            </li>
+            <li style={styles.timelineItem}>
+              <span style={styles.timelineDate}>February 1st</span>: Intake for January Session
+            </li>
+            <li style={styles.timelineItem}>
+              <span style={styles.timelineDate}>September 1st</span>: Intake for September Session
+            </li>
+          </ul>
+        </section>
+
+        {/* Eligibility Criteria */}
+        <section style={styles.section}>
+          <h2 style={styles.sectionTitle}>Eligibility Criteria</h2>
           <p style={styles.sectionText}>
-            Complete the form below to apply for our programs. Ensure all required fields are filled and documents are uploaded by December 1st.
+            To join our programs, applicants must meet the following requirements:
+          </p>
+          <ul style={styles.list}>
+            <li>Diploma Courses: Minimum KCSE mean grade of C- (minus).</li>
+            <li>Certificate Courses: Minimum KCSE mean grade of D (plain).</li>
+            <li>Short Courses: Open to all, no specific KCSE grade required (e.g., Driving, Computer Packages).</li>
+            <li>Valid National ID or Passport for identification.</li>
+            <li>Certified copies of KCSE certificates for verification.</li>
+          </ul>
+        </section>
+
+        {/* Application Form */}
+        <section style={styles.section}>
+          <h2 style={styles.sectionTitle}>Online Application Form</h2>
+          <p style={styles.sectionText}>
+            Complete the form below to apply for our programs. Ensure all required fields are filled and documents are uploaded by December 1st. Alternatively, download the PDF form for physical submission.
           </p>
           {formError && <p style={styles.error}>{formError}</p>}
           <form onSubmit={handleSubmit} style={styles.form}>
@@ -166,7 +208,7 @@ export default function Admissions() {
                 value={formData.dateOfBirth}
                 onChange={handleInputChange}
                 style={styles.input}
-                max={new Date().toISOString().split('T')[0]} // Prevent future dates
+                max={new Date().toISOString().split('T')[0]}
                 required
               />
             </div>
@@ -253,20 +295,207 @@ export default function Admissions() {
             <button type="submit" style={styles.submitButton}>
               Submit Application
             </button>
+            <Link
+              href="/applicationdocument.pdf"
+              style={styles.downloadButton}
+              download
+            >
+              Download PDF Application Form
+            </Link>
           </form>
         </section>
 
+        {/* KUCCPS Application */}
+        <section style={styles.section}>
+          <h2 style={styles.sectionTitle}>Apply via KUCCPS</h2>
+          <div style={styles.imageTextContainer}>
+            <div style={styles.imageWrapper}>
+              <Image
+                src="/kuccps.png"
+                alt="KUCCPS Application Portal for Government-Sponsored Students"
+                layout="responsive"
+                width={300}
+                height={200}
+                objectFit="cover"
+                quality={85}
+              />
+            </div>
+            <div style={styles.textWrapper}>
+              <p style={styles.sectionText}>
+                The Kenya Universities and Colleges Central Placement Service (KUCCPS) offers an alternative application route for government-sponsored students. Log in to the KUCCPS portal, select University Name, and choose your preferred course. Ensure you meet the minimum KCSE grade requirements for your program. KUCCPS applications are ideal for students seeking subsidized tuition.
+              </p>
+              <Link
+                href="https://www.kuccps.ac.ke"
+                style={styles.actionButton}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Apply via KUCCPS
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Tuition & Fees */}
         <section style={styles.section}>
           <h2 style={styles.sectionTitle}>Tuition & Fees</h2>
           <p style={styles.sectionText}>
-            Diploma Courses: KSH 22,000/term | Certificate Courses: KSH 19,500/term | Short Courses: Varies (e.g., Driving: KSH 10,000). Accommodation and meals: KSH 17,000/term (optional).
+            Our programs are competitively priced to ensure accessibility:
           </p>
+          <ul style={styles.list}>
+            <li>Diploma Courses: KSH 22,000 per term (3 terms per year).</li>
+            <li>Certificate Courses: KSH 19,500 per term (2-3 terms).</li>
+            <li>Short Courses: Varies (e.g., Driving: KSH 10,000, Computer Packages: KSH 8,000).</li>
+            <li>Accommodation and Meals: KSH 17,000 per term (optional).</li>
+            <li>Registration Fee: KSH 2,000 (one-time, non-refundable).</li>
+            <li>Exam Fees: KSH 3,000 per term (where applicable).</li>
+          </ul>
         </section>
+
+        {/* Financial Aid */}
         <section style={styles.section}>
-          <h2 style={styles.sectionTitle}>Financial Aid</h2>
+          <h2 style={styles.sectionTitle}>Financial Aid & HELB Loans</h2>
+          <div style={styles.imageTextContainer}>
+            <div style={styles.imageWrapper}>
+              <Image
+                src="/helb2.jpeg"
+                alt="HELB Loan Application for Tuition and Upkeep"
+                layout="responsive"
+                width={200}
+                height={100}
+                objectFit="contain"
+                quality={85}
+              />
+            </div>
+            <div style={styles.textWrapper}>
+              <div>
+                <p style={styles.sectionText}>
+                  We support students through government funding and scholarships. The Higher Education Loans Board (HELB) offers loans for tuition and living expenses. To apply:
+                </p>
+                <ul style={styles.list}>
+                  <li>Visit the HELB portal and create an account.</li>
+                  <li>Submit required documents (e.g., National ID, KCSE certificate).</li>
+                  <li>Select University Name and your course for loan allocation.</li>
+                  <li>Track your application via the HELB portal or mobile app.</li>
+                </ul>
+                <p style={styles.sectionText}>
+                  Scholarships are available for students with exceptional KCSE grades (B+ and above) or demonstrated financial need. Contact our admissions office for scholarship applications.
+                </p>
+              </div>
+              <Link
+                href="https://www.helb.co.ke"
+                style={styles.actionButton}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Apply for HELB Loan
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Campus Facilities */}
+        <section style={styles.section}>
+          <h2 style={styles.sectionTitle}>Campus Facilities</h2>
+          <div>
+            <p style={styles.sectionText}>
+              University Name offers state-of-the-art facilities to support your learning:
+            </p>
+            <ul style={styles.list}>
+              <li>Modern Computer Labs: Equipped with high-speed internet and industry-standard software.</li>
+              <li>Workshops: Hands-on training for engineering, automotive, and fashion design courses.</li>
+              <li>Library: Extensive collection of academic resources and e-books.</li>
+              <li>Hostels: Affordable on-campus accommodation with meals (KSH 17,000/term).</li>
+              <li>Sports Facilities: Fields and courts for football, basketball, and more.</li>
+            </ul>
+          </div>
+        </section>
+
+        {/* Application Tips */}
+        <section style={styles.section}>
+          <h2 style={styles.sectionTitle}>Application Tips</h2>
+          <div>
+            <p style={styles.sectionText}>Maximize your chances of a successful application:</p>
+            <ul style={styles.list}>
+              <li>Ensure uploaded documents are clear (PDF or high-quality images, max 5MB).</li>
+              <li>Verify your KCSE grade meets the course requirements.</li>
+              <li>Apply via KUCCPS for government-sponsored programs to reduce costs.</li>
+              <li>Contact our admissions team for clarification on requirements.</li>
+              <li>Submit early to avoid last-minute technical issues.</li>
+              <li>Keep copies of all submitted documents for reference.</li>
+            </ul>
+          </div>
+        </section>
+
+        {/* Student Testimonials */}
+        <section style={styles.section}>
+          <h2 style={styles.sectionTitle}>What Our Students Say</h2>
+          <div style={styles.testimonialContainer}>
+            <div style={styles.testimonial}>
+              <p style={styles.sectionText}>
+                “The Diploma in IT program transformed my career. The practical training and supportive lecturers made all the difference!” — Jane W., IT Graduate
+              </p>
+            </div>
+            <div style={styles.testimonial}>
+              <p style={styles.sectionText}>
+                “The driving course was affordable and well-structured. I got my license in just a month!” — Peter M., Short Course Student
+              </p>
+            </div>
+            <div style={styles.testimonial}>
+              <p style={styles.sectionText}>
+                “The business management course gave me the skills to start my own business. Highly recommend!” — Sarah K., Business Graduate
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section style={styles.section}>
+          <h2 style={styles.sectionTitle}>Frequently Asked Questions</h2>
+          <div style={styles.faqContainer}>
+            <div style={styles.faqItem}>
+              <h3 style={styles.faqQuestion}>Can I apply for multiple courses?</h3>
+              <p style={styles.sectionText}>Yes, but you must submit separate applications for each course. Contact our admissions team for guidance.</p>
+            </div>
+            <div style={styles.faqItem}>
+              <h3 style={styles.faqQuestion}>What if I miss the application deadline?</h3>
+              <p style={styles.sectionText}>Late applications may be considered for the next intake. Contact admissions@universityname.ac.ke for details.</p>
+            </div>
+            <div style={styles.faqItem}>
+              <h3 style={styles.faqQuestion}>Are there evening or part-time classes?</h3>
+              <p style={styles.sectionText}>Yes, select courses (e.g., Computer Packages, Business Management) offer evening and part-time options.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Information */}
+        <section style={styles.section}>
+          <h2 style={styles.sectionTitle}>Contact Admissions</h2>
           <p style={styles.sectionText}>
-            Eligible students can apply for government funding through KUCCPS or HELB loans. Scholarships and grants are also available for qualifying applicants.
+            Have questions? Reach out to our friendly admissions team:
           </p>
+          <ul style={styles.list}>
+            <li>
+              Email:{' '}
+              <a href="mailto:admissions@universityname.ac.ke" style={styles.link}>
+                admissions@universityname.ac.ke
+              </a>
+            </li>
+            <li>
+              Phone:{' '}
+              <a href="tel:+254720215715" style={styles.link}>
+                +254 720 215 715
+              </a>
+            </li>
+            <li>
+              WhatsApp:{' '}
+              <a href="https://wa.me/254720215715" style={styles.link} target="_blank" rel="noopener noreferrer">
+                +254 720 215 715
+              </a>
+            </li>
+            <li>Physical Address: University Name, P.O. Box 1234-00100, Nairobi, Kenya</li>
+            <li>Office Hours: Monday–Friday, 8:00 AM–5:00 PM EAT</li>
+          </ul>
         </section>
       </main>
       <Footer />
@@ -288,11 +517,18 @@ export default function Admissions() {
           h2[style*="fontSize: '1.8rem'"] {
             font-size: 1.4rem !important;
           }
+          h3[style*="fontSize: '1.2rem'"] {
+            font-size: 1rem !important;
+          }
           p[style*="fontSize: '1rem'"] {
             font-size: 0.85rem !important;
             word-wrap: break-word !important;
           }
           div[style*="gridTemplateColumns: repeat(2, 1fr)"] {
+            grid-template-columns: 1fr !important;
+            gap: 1rem !important;
+          }
+          div[style*="gridTemplateColumns: repeat(auto-fit, minmax(250px, 1fr))"] {
             grid-template-columns: 1fr !important;
             gap: 1rem !important;
           }
@@ -305,12 +541,21 @@ export default function Admissions() {
           input[style*="padding: 0.75rem"][type="file"] {
             padding: 0.5rem 0 !important;
           }
-          button[style*="padding: 0.75rem 1.5rem"] {
+          button[style*="padding: 0.75rem 1.5rem"], a[style*="padding: 0.75rem 1.5rem"] {
             padding: 0.5rem 1rem !important;
             font-size: 0.85rem !important;
-            grid-column: 1 / -1 !important;
             width: 100% !important;
             box-sizing: border-box !important;
+          }
+          div[style*="display: flex; gap: 2rem"] {
+            flex-direction: column !important;
+            gap: 1rem !important;
+          }
+          div[style*="width: '300px'"], div[style*="width: '200px'"] {
+            width: 100% !important;
+          }
+          ul[style*="paddingLeft: '1.5rem'"] {
+            padding-left: 1rem !important;
           }
         }
 
@@ -330,11 +575,18 @@ export default function Admissions() {
           h2[style*="fontSize: '1.8rem'"] {
             font-size: 1.2rem !important;
           }
+          h3[style*="fontSize: '1.2rem'"] {
+            font-size: 0.9rem !important;
+          }
           p[style*="fontSize: '1rem'"] {
             font-size: 0.8rem !important;
             word-wrap: break-word !important;
           }
           div[style*="gridTemplateColumns: repeat(2, 1fr)"] {
+            grid-template-columns: 1fr !important;
+            gap: 0.75rem !important;
+          }
+          div[style*="gridTemplateColumns: repeat(auto-fit, minmax(250px, 1fr))"] {
             grid-template-columns: 1fr !important;
             gap: 0.75rem !important;
           }
@@ -347,12 +599,21 @@ export default function Admissions() {
           input[style*="padding: 0.75rem"][type="file"] {
             padding: 0.4rem 0 !important;
           }
-          button[style*="padding: 0.75rem 1.5rem"] {
+          button[style*="padding: 0.75rem 1.5rem"], a[style*="padding: 0.75rem 1.5rem"] {
             padding: 0.4rem 0.8rem !important;
             font-size: 0.8rem !important;
-            grid-column: 1 / -1 !important;
             width: 100% !important;
             box-sizing: border-box !important;
+          }
+          div[style*="display: flex; gap: 2rem"] {
+            flex-direction: column !important;
+            gap: 0.75rem !important;
+          }
+          div[style*="width: '300px'"], div[style*="width: '200px'"] {
+            width: 100% !important;
+          }
+          ul[style*="paddingLeft: '1.5rem'"] {
+            padding-left: 0.75rem !important;
           }
         }
 
@@ -372,11 +633,18 @@ export default function Admissions() {
           h2[style*="fontSize: '1.8rem'"] {
             font-size: 1.1rem !important;
           }
+          h3[style*="fontSize: '1.2rem'"] {
+            font-size: 0.85rem !important;
+          }
           p[style*="fontSize: '1rem'"] {
             font-size: 0.75rem !important;
             word-wrap: break-word !important;
           }
           div[style*="gridTemplateColumns: repeat(2, 1fr)"] {
+            grid-template-columns: 1fr !important;
+            gap: 0.5rem !important;
+          }
+          div[style*="gridTemplateColumns: repeat(auto-fit, minmax(250px, 1fr))"] {
             grid-template-columns: 1fr !important;
             gap: 0.5rem !important;
           }
@@ -389,12 +657,21 @@ export default function Admissions() {
           input[style*="padding: 0.75rem"][type="file"] {
             padding: 0.3rem 0 !important;
           }
-          button[style*="padding: 0.75rem 1.5rem"] {
+          button[style*="padding: 0.75rem 1.5rem"], a[style*="padding: 0.75rem 1.5rem"] {
             padding: 0.3rem 0.6rem !important;
             font-size: 0.75rem !important;
-            grid-column: 1 / -1 !important;
             width: 100% !important;
             box-sizing: border-box !important;
+          }
+          div[style*="display: flex; gap: 2rem"] {
+            flex-direction: column !important;
+            gap: 0.5rem !important;
+          }
+          div[style*="width: '300px'"], div[style*="width: '200px'"] {
+            width: 100% !important;
+          }
+          ul[style*="paddingLeft: '1.5rem'"] {
+            padding-left: 0.5rem !important;
           }
         }
       `}</style>
@@ -408,7 +685,8 @@ const styles = {
     minHeight: '100vh',
     display: 'flex',
     flexDirection: 'column',
-    overflowX: 'hidden', // Prevent horizontal overflow
+    overflowX: 'hidden',
+    boxSizing: 'border-box',
   },
   main: {
     padding: '2rem 0',
@@ -420,13 +698,14 @@ const styles = {
   brochureContainer: {
     position: 'relative',
     width: '100%',
-    maxWidth: '100%', // Ensure it doesn't exceed viewport
-    aspectRatio: '16 / 9', // Consistent aspect ratio
+    maxWidth: '100%',
+    aspectRatio: '16 / 9',
     marginBottom: '2rem',
     borderRadius: '10px',
     overflow: 'hidden',
     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
     boxSizing: 'border-box',
+    transition: 'transform 0.3s ease',
   },
   title: {
     fontSize: '2.5rem',
@@ -444,6 +723,11 @@ const styles = {
     borderRadius: '10px',
     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
     boxSizing: 'border-box',
+    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+    ':hover': {
+      transform: 'translateY(-5px)',
+      boxShadow: '0 6px 16px rgba(0, 0, 0, 0.15)',
+    },
   },
   sectionTitle: {
     fontSize: '1.8rem',
@@ -517,11 +801,133 @@ const styles = {
     border: 'none',
     borderRadius: '8px',
     cursor: 'pointer',
-    transition: 'background 0.3s ease',
+    transition: 'background 0.3s ease, transform 0.3s ease',
     width: '100%',
     boxSizing: 'border-box',
     ':hover': {
       background: 'linear-gradient(45deg, #009900, #00cc00)',
+      transform: 'scale(1.02)',
+    },
+  },
+  downloadButton: {
+    gridColumn: 'span 2',
+    display: 'inline-block',
+    padding: '0.75rem 1.5rem',
+    background: 'linear-gradient(45deg, #ff0000ff, #9b00009c)',
+    color: '#fff',
+    fontSize: '1rem',
+    fontWeight: '500',
+    borderRadius: '8px',
+    textAlign: 'center',
+    textDecoration: 'none',
+    transition: 'background 0.3s ease, transform 0.3s ease',
+    width: '30%',
+    boxSizing: 'border-box',
+    marginTop: '1rem',   
+    ':hover': {
+      background: 'linear-gradient(45deg, #0f2b24, #1a3c34)',
+      transform: 'scale(1.02)',
+    },
+  },
+  actionButton: {
+    display: 'inline-block',
+    padding: '0.75rem 1.5rem',
+    background: 'linear-gradient(45deg, #00cc00, #00ff00)',
+    color: '#fff',
+    fontSize: '1rem',
+    fontWeight: '500',
+    borderRadius: '8px',
+    textDecoration: 'none',
+    transition: 'background 0.3s ease, transform 0.3s ease',
+    marginTop: '1rem',
+    ':hover': {
+      background: 'linear-gradient(45deg, #009900, #00cc00)',
+      transform: 'scale(1.02)',
+    },
+  },
+  imageTextContainer: {
+    display: 'flex',
+    gap: '2rem',
+    alignItems: 'center',
+  },
+  imageWrapper: {
+    width: '300px',
+    maxWidth: '100%',
+    flexShrink: 0,
+  },
+  textWrapper: {
+    flex: 1,
+  },
+  timeline: {
+    listStyle: 'none',
+    paddingLeft: '1.5rem',
+    position: 'relative',
+  },
+  timelineItem: {
+    fontSize: '1rem',
+    color: '#4a5568',
+    marginBottom: '1rem',
+    position: 'relative',
+    paddingLeft: '1.5rem',
+    ':before': {
+      content: '""',
+      position: 'absolute',
+      left: '0',
+      top: '0.25rem',
+      width: '10px',
+      height: '10px',
+      background: '#00cc00',
+      borderRadius: '50%',
+    },
+  },
+  timelineDate: {
+    fontWeight: '600',
+    color: '#1a3c34',
+    marginRight: '0.5rem',
+  },
+  list: {
+    listStyle: 'disc',
+    paddingLeft: '1.5rem',
+    fontSize: '1rem',
+    color: '#4a5568',
+  },
+  testimonialContainer: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+    gap: '1.5rem',
+  },
+  testimonial: {
+    background: '#f7fafc',
+    padding: '1rem',
+    borderRadius: '8px',
+    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+    transition: 'transform 0.3s ease',
+    ':hover': {
+      transform: 'translateY(-3px)',
+    },
+  },
+  faqContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '1rem',
+  },
+  faqItem: {
+    background: '#f7fafc',
+    padding: '1rem',
+    borderRadius: '8px',
+    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+  },
+  faqQuestion: {
+    fontSize: '1.2rem',
+    fontWeight: '500',
+    color: '#1a3c34',
+    marginBottom: '0.5rem',
+  },
+  link: {
+    color: '#00cc00',
+    textDecoration: 'none',
+    ':hover': {
+      textDecoration: 'underline',
     },
   },
   error: {
