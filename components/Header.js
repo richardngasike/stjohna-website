@@ -204,7 +204,7 @@ export default function Header() {
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
         .top-bar {
-          background: linear-gradient(90deg, #436818ff, #33ff00ff);
+          background: linear-gradient(90deg, #ff0000ff, #c72525ff);
           color: #ffffff;
           padding: 0.75rem 0;
           font-size: 0.9rem;
@@ -381,13 +381,13 @@ export default function Header() {
         .chevron {
           font-size: 0.8rem;
           transition: transform 0.3s ease;
-          color: #1e3a8a;
+          color: #00ff22ff;
         }
 
         .nav-item:hover .chevron,
         .nav-item:focus-within .chevron {
           transform: rotate(180deg);
-          color: #facc15;
+          color: #ff0000ff;
         }
 
         .nav-item {
@@ -400,7 +400,7 @@ export default function Header() {
           top: 100%;
           left: 50%;
           transform: translateX(-50%);
-          background: linear-gradient(180deg, #16a34a, #22c55e);
+          background: linear-gradient(180deg, #ff0000ff, #a84f3fff);
           border: 2px solid #1e293b;
           border-radius: 12px;
           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
@@ -410,6 +410,7 @@ export default function Header() {
           transform-origin: top;
           flex-direction: column;
           align-items: center;
+          
         }
 
         .nav-item:hover .dropdown,
@@ -426,7 +427,7 @@ export default function Header() {
           align-items: center;
           gap: 0.5rem;
           padding: 0.8rem 1.5rem;
-          color: #ffffff;
+          color: #ffffffff;
           font-size: 1rem;
           font-weight: 500;
           width: 100%;
@@ -447,7 +448,7 @@ export default function Header() {
         }
 
         .dropdown a + a {
-          border-top: 1px solid rgba(255, 255, 255, 0.2);
+          border-top: 1px solid rgba(255, 255, 255, 1);
         }
 
         .search-bar {
