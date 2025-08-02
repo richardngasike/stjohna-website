@@ -102,10 +102,10 @@ export default function Header() {
                 Academics <span className="chevron">▼</span>
               </Link>
               <div className={`dropdown ${openDropdown === 1 ? 'open' : ''}`}>
-                <Link href="/programs/undergraduate">📚 Undergraduate Programs</Link>
-                <Link href="/programs/graduate">🎓 Graduate Programs</Link>
-                <Link href="/programs/online">💻 Online Learning</Link>
-                <Link href="/programs/certificates">🏅 Certificate Programs</Link>
+                <Link href="/programs/undergraduate">📚 Diploma Courses</Link>
+                <Link href="/programs/graduate">🎓 Certificate Courses</Link>
+                <Link href="/programs/online">💻 Short Courses</Link>
+                <Link href="/programs/certificates">🏅 Online Learning</Link>
               </div>
             </div>
             <div className="nav-item">
@@ -126,21 +126,6 @@ export default function Header() {
               </div>
             </div>
             <div className="nav-item">
-              <Link
-                href="/student-life"
-                className="nav-link dropdown-toggle"
-                aria-haspopup="true"
-                aria-expanded={openDropdown === 3}
-                onClick={() => toggleMobileDropdown(3)}
-              >
-                Student Life <span className="chevron">▼</span>
-              </Link>
-              <div className={`dropdown ${openDropdown === 3 ? 'open' : ''}`}>
-                <Link href="/student-life/clubs">🤝 Clubs & Organizations</Link>
-                <Link href="/student-life/housing">🏠 Housing & Dining</Link>
-                <Link href="/student-life/events">🎉 Campus Events</Link>
-                <Link href="/student-life/wellness">🩺 Wellness Services</Link>
-              </div>
             </div>
             <div className="nav-item">
               <Link
@@ -159,21 +144,7 @@ export default function Header() {
               </div>
             </div>
             <div className="nav-item">
-              <Link
-                href="/alumni"
-                className="nav-link dropdown-toggle"
-                aria-haspopup="true"
-                aria-expanded={openDropdown === 5}
-                onClick={() => toggleMobileDropdown(5)}
-              >
-                Alumni <span className="chevron">▼</span>
-              </Link>
-              <div className={`dropdown ${openDropdown === 5 ? 'open' : ''}`}>
-                <Link href="/alumni/association">🤝 Alumni Association</Link>
-                <Link href="/alumni/donate">💸 Donate</Link>
-                <Link href="/alumni/events">🎈 Alumni Events</Link>
-                <Link href="/alumni/stories">📖 Success Stories</Link>
-              </div>
+                
             </div>
             <div className="nav-item">
               <Link href="/contact" className="nav-link">Contact</Link>
@@ -196,7 +167,6 @@ export default function Header() {
               </div>
             </div>
             <div className="search-bar">
-              <input type="text" placeholder="🔍 Search..." aria-label="Search" />
               <Link href="/admissions/apply">
                 <button className="apply-button" aria-label="Apply Now">APPLY</button>
               </Link>
@@ -304,8 +274,8 @@ export default function Header() {
         }
 
         .social-icon {
-          width: 32px;
-          height: 32px;
+          width: 40px;
+          height: 40px;
           transition: all 0.3s ease;
           padding: 0.3rem;
           border-radius: 50%;
@@ -313,7 +283,7 @@ export default function Header() {
 
         .social-media a:hover .social-icon,
         .social-media a:focus .social-icon {
-          fill: #facc15;
+          fill: #9dff00ff;
           transform: scale(1.2);
           background: rgba(255, 255, 255, 0.2);
           box-shadow: 0 0 10px rgba(250, 204, 21, 0.5);
@@ -369,32 +339,49 @@ export default function Header() {
         }
 
         .tagline {
-          font-size: 1.5rem;
+          font-size: 1.2rem;
           font-weight: 800;
           background: linear-gradient(90deg, #16a34a, #22c55e);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-          letter-spacing: 1.2px;
-          line-height: 1.4;
+          letter-spacing: 1.0px;
+          line-height: 1.0;
           font-family: 'Poppins', sans-serif;
           text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .nav {
-          display: flex;
-          gap: 1rem;
-          align-items: center;
-          flex-wrap: nowrap;
-          font-family: 'Poppins', sans-serif;
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        flex-wrap: nowrap;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(90deg, #ff0000ff, #5eff00ff);
+        color: #ffffff;
+        border: 2px solid transparent;
+        border-image: linear-gradient(90deg, #ff0000, #c72525) 1;
+        position: relative;
+        padding: 0.5rem 1rem;
         }
 
+        .nav::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: -2px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 10px 10px 0 0;
+        border-color: #ff0000 transparent transparent transparent;
+        }
         .nav-link {
-          font-size: 1.2rem;
+          font-size: 0.5rem;
           font-weight: 700;
           color: #1e3a8a;
           transition: all 0.3s ease;
           white-space: nowrap;
-          letter-spacing: 0.8px;
+          letter-spacing: 0.5px;
           line-height: 1.5;
           position: relative;
           text-transform: uppercase;
@@ -404,7 +391,7 @@ export default function Header() {
 
         .nav-link:hover,
         .nav-link:focus {
-          color: #facc15;
+          color: #66ff00ff;
           transform: scale(1.05);
           background: rgba(30, 58, 138, 0.1);
           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
