@@ -93,10 +93,10 @@ export default function Admissions() {
         {/* Brochure Image */}
         <div style={styles.brochureContainer}>
           <Image
-            src="/bronchure.jpg" // Replace with actual brochure image path
+            src="/brochure.jpg" // Fixed typo from /bronchure.jpg
             alt="Courses Brochure"
             width={1200}
-            height={675} // 16:9 aspect ratio (1200/675 = 16/9)
+            height={675} // 16:9 aspect ratio
             objectFit="cover"
             objectPosition="center"
             quality={85}
@@ -274,56 +274,127 @@ export default function Admissions() {
       <style jsx>{`
         @media (max-width: 768px) {
           div[style*="padding: 2rem 0"] {
-            padding: 1.5rem 1rem !important;
+            padding: 1rem 0.5rem !important;
+            max-width: 100% !important;
           }
           div[style*="aspectRatio: '16 / 9'"] {
             aspect-ratio: 16 / 9 !important;
+            margin: 0 0.5rem 1rem !important;
           }
           h1[style*="fontSize: '2.5rem'"] {
-            font-size: 2rem !important;
+            font-size: 1.8rem !important;
+            padding: 0 0.5rem !important;
           }
           h2[style*="fontSize: '1.8rem'"] {
-            font-size: 1.5rem !important;
+            font-size: 1.4rem !important;
           }
           p[style*="fontSize: '1rem'"] {
-            font-size: 0.9rem !important;
+            font-size: 0.85rem !important;
+            word-wrap: break-word !important;
           }
           div[style*="gridTemplateColumns: repeat(2, 1fr)"] {
             grid-template-columns: 1fr !important;
+            gap: 1rem !important;
           }
           input[style*="padding: 0.75rem"], select[style*="padding: 0.75rem"] {
-            padding: 0.6rem !important;
-            font-size: 0.9rem !important;
+            padding: 0.5rem !important;
+            font-size: 0.85rem !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+          }
+          input[style*="padding: 0.75rem"][type="file"] {
+            padding: 0.5rem 0 !important;
           }
           button[style*="padding: 0.75rem 1.5rem"] {
-            padding: 0.6rem 1.2rem !important;
-            font-size: 0.9rem !important;
+            padding: 0.5rem 1rem !important;
+            font-size: 0.85rem !important;
+            grid-column: 1 / -1 !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
           }
         }
 
         @media (max-width: 480px) {
           div[style*="padding: 2rem 0"] {
-            padding: 1rem 0.5rem !important;
+            padding: 0.75rem 0.25rem !important;
+            max-width: 100% !important;
           }
           div[style*="aspectRatio: '16 / 9'"] {
             aspect-ratio: 16 / 9 !important;
+            margin: 0 0.25rem 0.75rem !important;
           }
           h1[style*="fontSize: '2.5rem'"] {
-            font-size: 1.8rem !important;
+            font-size: 1.6rem !important;
+            padding: 0 0.25rem !important;
           }
           h2[style*="fontSize: '1.8rem'"] {
-            font-size: 1.3rem !important;
+            font-size: 1.2rem !important;
           }
           p[style*="fontSize: '1rem'"] {
-            font-size: 0.85rem !important;
+            font-size: 0.8rem !important;
+            word-wrap: break-word !important;
+          }
+          div[style*="gridTemplateColumns: repeat(2, 1fr)"] {
+            grid-template-columns: 1fr !important;
+            gap: 0.75rem !important;
           }
           input[style*="padding: 0.75rem"], select[style*="padding: 0.75rem"] {
-            padding: 0.5rem !important;
-            font-size: 0.85rem !important;
+            padding: 0.4rem !important;
+            font-size: 0.8rem !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+          }
+          input[style*="padding: 0.75rem"][type="file"] {
+            padding: 0.4rem 0 !important;
           }
           button[style*="padding: 0.75rem 1.5rem"] {
-            padding: 0.5rem 1rem !important;
-            font-size: 0.85rem !important;
+            padding: 0.4rem 0.8rem !important;
+            font-size: 0.8rem !important;
+            grid-column: 1 / -1 !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+          }
+        }
+
+        @media (max-width: 360px) {
+          div[style*="padding: 2rem 0"] {
+            padding: 0.5rem 0.2rem !important;
+            max-width: 100% !important;
+          }
+          div[style*="aspectRatio: '16 / 9'"] {
+            aspect-ratio: 16 / 9 !important;
+            margin: 0 0.2rem 0.5rem !important;
+          }
+          h1[style*="fontSize: '2.5rem'"] {
+            font-size: 1.4rem !important;
+            padding: 0 0.2rem !important;
+          }
+          h2[style*="fontSize: '1.8rem'"] {
+            font-size: 1.1rem !important;
+          }
+          p[style*="fontSize: '1rem'"] {
+            font-size: 0.75rem !important;
+            word-wrap: break-word !important;
+          }
+          div[style*="gridTemplateColumns: repeat(2, 1fr)"] {
+            grid-template-columns: 1fr !important;
+            gap: 0.5rem !important;
+          }
+          input[style*="padding: 0.75rem"], select[style*="padding: 0.75rem"] {
+            padding: 0.3rem !important;
+            font-size: 0.75rem !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+          }
+          input[style*="padding: 0.75rem"][type="file"] {
+            padding: 0.3rem 0 !important;
+          }
+          button[style*="padding: 0.75rem 1.5rem"] {
+            padding: 0.3rem 0.6rem !important;
+            font-size: 0.75rem !important;
+            grid-column: 1 / -1 !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
           }
         }
       `}</style>
@@ -337,21 +408,25 @@ const styles = {
     minHeight: '100vh',
     display: 'flex',
     flexDirection: 'column',
+    overflowX: 'hidden', // Prevent horizontal overflow
   },
   main: {
     padding: '2rem 0',
     width: '100%',
     maxWidth: '1200px',
     margin: '0 auto',
+    boxSizing: 'border-box',
   },
   brochureContainer: {
     position: 'relative',
     width: '100%',
-    aspectRatio: '16 / 9', // Ensures consistent aspect ratio
+    maxWidth: '100%', // Ensure it doesn't exceed viewport
+    aspectRatio: '16 / 9', // Consistent aspect ratio
     marginBottom: '2rem',
     borderRadius: '10px',
     overflow: 'hidden',
     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
+    boxSizing: 'border-box',
   },
   title: {
     fontSize: '2.5rem',
@@ -360,6 +435,7 @@ const styles = {
     textAlign: 'center',
     marginBottom: '2rem',
     textTransform: 'uppercase',
+    wordWrap: 'break-word',
   },
   section: {
     marginBottom: '2rem',
@@ -367,22 +443,26 @@ const styles = {
     padding: '1.5rem',
     borderRadius: '10px',
     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+    boxSizing: 'border-box',
   },
   sectionTitle: {
     fontSize: '1.8rem',
     fontWeight: '600',
     color: '#1a3c34',
     marginBottom: '1rem',
+    wordWrap: 'break-word',
   },
   sectionText: {
     fontSize: '1rem',
     color: '#4a5568',
     lineHeight: '1.5',
+    wordWrap: 'break-word',
   },
   form: {
     display: 'grid',
     gridTemplateColumns: 'repeat(2, 1fr)',
     gap: '1.5rem',
+    boxSizing: 'border-box',
   },
   formGroup: {
     display: 'flex',
@@ -393,6 +473,7 @@ const styles = {
     fontWeight: '500',
     color: '#1a3c34',
     marginBottom: '0.5rem',
+    wordWrap: 'break-word',
   },
   input: {
     padding: '0.75rem',
@@ -401,6 +482,8 @@ const styles = {
     borderRadius: '8px',
     outline: 'none',
     transition: 'border-color 0.3s ease',
+    width: '100%',
+    boxSizing: 'border-box',
     ':focus': {
       borderColor: '#00cc00',
     },
@@ -412,13 +495,17 @@ const styles = {
     borderRadius: '8px',
     outline: 'none',
     transition: 'border-color 0.3s ease',
+    width: '100%',
+    boxSizing: 'border-box',
     ':focus': {
       borderColor: '#00cc00',
     },
   },
   fileInput: {
-    padding: '0.75rem',
+    padding: '0.75rem 0',
     fontSize: '1rem',
+    width: '100%',
+    boxSizing: 'border-box',
   },
   submitButton: {
     gridColumn: 'span 2',
@@ -431,6 +518,8 @@ const styles = {
     borderRadius: '8px',
     cursor: 'pointer',
     transition: 'background 0.3s ease',
+    width: '100%',
+    boxSizing: 'border-box',
     ':hover': {
       background: 'linear-gradient(45deg, #009900, #00cc00)',
     },
@@ -440,5 +529,6 @@ const styles = {
     fontSize: '0.9rem',
     marginBottom: '1rem',
     textAlign: 'center',
+    wordWrap: 'break-word',
   },
 };
