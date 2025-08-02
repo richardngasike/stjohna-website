@@ -13,7 +13,7 @@ export default function Header() {
   };
 
   const toggleMobileDropdown = (index) => {
-    setOpenDropdown(openDropdown === index ? nullburgootnull : index);
+    setOpenDropdown(openDropdown === index ? null : index);
   };
 
   useEffect(() => {
@@ -39,9 +39,11 @@ export default function Header() {
         <div className="container">
           <div className="contact-info">
             <h3>ST. JOHN TRAINING COLLEGE MARALAL</h3>
-            <span>📞 <a href="tel:0720215715">0720215715</a></span>
-            <span className="separator"> | </span>
-            <span>✉️ <a href="mailto:stjohnscollege@gmail.com">stjohnscollege@gmail.com</a></span>
+            <div className="contact-details">
+              <span>📞 <a href="tel:0720215715">0720215715</a></span>
+              <span className="separator"> | </span>
+              <span>✉️ <a href="mailto:stjohnscollege@gmail.com">stjohnscollege@gmail.com</a></span>
+            </div>
           </div>
           <div className="social-media">
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
@@ -75,7 +77,9 @@ export default function Header() {
             <span className="tagline">Aspire to Inspire <br /> Before you Expire</span>
           </div>
           <nav className={`nav ${isMobileMenuOpen ? 'open' : ''}`} aria-label="Main navigation">
-            <Link href="/" className="nav-link" aria-current="page">Home</Link>
+            <div className="nav-item">
+              <Link href="/" className="nav-link" aria-current="page">Home</Link>
+            </div>
             <div className="nav-item">
               <Link href="/about" className="nav-link">About</Link>
             </div>
@@ -185,9 +189,32 @@ export default function Header() {
             </div>
             <div className="search-bar">
               <input type="text" placeholder="🔍 Search..." aria-label="Search" />
-              <button type="submit" aria-label="Search">Search</button>
+              <Link href="/admissions/apply">
+                <button className="apply-button" aria-label="Apply Now">APPLY</button>
+              </Link>
             </div>
-           
+            <div className="mobile-social-media">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                <svg className="social-icon" viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </a>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <svg className="social-icon" viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2.04c-5.523 0-10 4.477-10 10 0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12c0-5.523-4.477-10-10-10z"/>
+                </svg>
+              </a>
+              <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                <svg className="social-icon" viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.33.26 2.62.74 3.83L2 22l6.39-.94c1.15.49 2.39.74 3.65.74 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.18c-1.14 0-2.26-.31-3.24-.84l-.23-.13-3.78.56.57-3.72-.14-.23c-.58-1.03-.88-2.18-.88-3.37 0-4.62 3.76-8.38 8.38-8.38s8.38 3.76 8.38 8.38c0 4.63-3.76 8.38-8.38 8.38zm4.29-6.07c-.23-.12-1.38-.68-1.59-.76-.21-.08-.37-.12-.53.12-.16.24-.61.76-.75.92-.13.16-.27.18-.50.06-.23-.12-1-.38-1.88-.92-.66-.4-1.11-.89-1.24-1.12-.13-.24-.01-.36.1-.48.1-.1.23-.24.35-.36.12-.12.16-.21.24-.36.08-.16.04-.30-.02-.42-.06-.12-.53-1.29-.73-1.77-.19-.47-.38-.41-.53-.41-.14 0-.31-.01-.48-.01-.27 0-.50.1-.67.38-.17.27-.65.66-.65 1.61s.67 1.88.79 2.01c.12.13 1.11 1.79 2.69 2.51.38.17.67.3 1.1.49.52.23.97.49 1.33.66.33.16.66.14.92.08.28-.06.86-.33 1.04-.66.18-.33.18-.61.13-.66-.06-.06-.14-.08-.21-.12z"/>
+                </svg>
+              </a>
+            </div>
+            <div className="developer-caption">
+              <a href="https://richardngasike.co.ke" target="_blank" rel="noopener noreferrer">
+                DEVELOPER BY RICHARD NGASIKE
+              </a>
+            </div>
           </nav>
           <button
             className="hamburger"
@@ -201,7 +228,7 @@ export default function Header() {
       </div>
 
       <style jsx>{`
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
         .top-bar {
           background: linear-gradient(90deg, #ff0000ff, #c72525ff);
@@ -210,41 +237,49 @@ export default function Header() {
           font-size: 0.9rem;
           z-index: 2000;
           font-family: 'Poppins', sans-serif;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
           position: relative;
+          text-align: center;
+          border-bottom: 2px solid #ffffff;
         }
 
         .top-bar .container {
           display: flex;
-          justify-content: space-between;
+          flex-direction: column;
           align-items: center;
-          flex-wrap: wrap;
           gap: 0.5rem;
         }
 
         .contact-info {
           display: flex;
+          flex-direction: column;
           align-items: center;
-          flex-wrap: wrap;
+          gap: 0.5rem;
+        }
+
+        .contact-details {
+          display: flex;
+          align-items: center;
           gap: 0.5rem;
         }
 
         .contact-info h3 {
-          font-size: 1.2rem;
-          font-weight: 700;
+          font-size: 1.3rem;
+          font-weight: 800;
           color: #ffffff;
           font-family: 'Poppins', sans-serif;
-          letter-spacing: 0.8px;
+          letter-spacing: 1px;
           text-transform: uppercase;
           margin: 0;
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .contact-info a,
         .contact-info span {
           color: #ffffff;
+          font-weight: 700;
           transition: color 0.3s ease, transform 0.3s ease;
           font-family: 'Poppins', sans-serif;
-          font-weight: 500;
           letter-spacing: 0.5px;
           line-height: 1.5;
           white-space: nowrap;
@@ -253,30 +288,35 @@ export default function Header() {
         .contact-info a:hover,
         .contact-info a:focus {
           color: #facc15;
-          transform: translateY(-2px);
+          transform: scale(1.05);
           outline: 2px solid #facc15;
         }
 
         .separator {
           color: #ffffff;
+          font-weight: 700;
         }
 
         .social-media {
           display: flex;
           align-items: center;
-          gap: 0.8rem;
+          gap: 1rem;
         }
 
         .social-icon {
-          width: 24px;
-          height: 24px;
-          transition: fill 0.3s ease, transform 0.3s ease;
+          width: 28px;
+          height: 28px;
+          transition: all 0.3s ease;
+          padding: 0.3rem;
+          border-radius: 50%;
         }
 
         .social-media a:hover .social-icon,
         .social-media a:focus .social-icon {
           fill: #facc15;
           transform: scale(1.2);
+          background: rgba(255, 255, 255, 0.2);
+          box-shadow: 0 0 10px rgba(250, 204, 21, 0.5);
         }
 
         header {
@@ -286,6 +326,7 @@ export default function Header() {
           background: linear-gradient(90deg, #fef3c7, #fef9c3);
           transition: transform 0.3s ease-in-out;
           font-family: 'Poppins', sans-serif;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         header.hidden {
@@ -316,27 +357,27 @@ export default function Header() {
         }
 
         .logo {
-          width: 60px;
+          width: 70px;
           height: auto;
           transition: transform 0.3s ease, filter 0.3s ease;
         }
 
         .logo:hover,
         .logo:focus {
-          transform: scale(1.1);
-          filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+          transform: scale(1.15);
+          filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
         }
 
         .tagline {
-          font-size: 1.4rem;
-          font-weight: 700;
+          font-size: 1.5rem;
+          font-weight: 800;
           background: linear-gradient(90deg, #16a34a, #22c55e);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-          letter-spacing: 1px;
+          letter-spacing: 1.2px;
           line-height: 1.4;
           font-family: 'Poppins', sans-serif;
-          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .nav {
@@ -348,27 +389,32 @@ export default function Header() {
         }
 
         .nav-link {
-          font-size: 1.1rem;
-          font-weight: 600;
+          font-size: 1.2rem;
+          font-weight: 700;
           color: #1e3a8a;
-          transition: color 0.3s ease, transform 0.3s ease;
+          transition: all 0.3s ease;
           white-space: nowrap;
-          letter-spacing: 0.5px;
+          letter-spacing: 0.8px;
           line-height: 1.5;
           position: relative;
+          text-transform: uppercase;
+          padding: 0.5rem 1rem;
+          border-radius: 8px;
         }
 
         .nav-link:hover,
         .nav-link:focus {
           color: #facc15;
-          transform: translateY(-2px);
+          transform: scale(1.05);
+          background: rgba(30, 58, 138, 0.1);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
           outline: 2px solid #facc15;
         }
 
         .nav-link[aria-current="page"] {
           color: #facc15;
-          font-weight: 700;
-          border-bottom: 2px solid #facc15;
+          font-weight: 800;
+          border-bottom: 3px solid #facc15;
         }
 
         .dropdown-toggle {
@@ -379,15 +425,15 @@ export default function Header() {
         }
 
         .chevron {
-          font-size: 0.8rem;
+          font-size: 0.9rem;
           transition: transform 0.3s ease;
-          color: #00ff22ff;
+          color: #1e3a8a;
         }
 
         .nav-item:hover .chevron,
         .nav-item:focus-within .chevron {
           transform: rotate(180deg);
-          color: #ff0000ff;
+          color: #facc15;
         }
 
         .nav-item {
@@ -398,19 +444,18 @@ export default function Header() {
           display: none;
           position: absolute;
           top: 100%;
-          left: 50%;
-          transform: translateX(-50%);
-          background: linear-gradient(180deg, #ff0000ff, #a84f3fff);
+          left: 0;
+          background: linear-gradient(180deg, #16a34a, #22c55e);
           border: 2px solid #1e293b;
           border-radius: 12px;
           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-          min-width: 240px;
+          min-width: 260px;
           z-index: 4000;
-          padding: 0.5rem 0;
+          padding: 0.75rem 0;
           transform-origin: top;
           flex-direction: column;
-          align-items: center;
-          
+          align-items: flex-start;
+          animation: dropdownFade 0.3s ease-in-out;
         }
 
         .nav-item:hover .dropdown,
@@ -427,15 +472,16 @@ export default function Header() {
           align-items: center;
           gap: 0.5rem;
           padding: 0.8rem 1.5rem;
-          color: #ffffffff;
+          color: #ffffff;
           font-size: 1rem;
-          font-weight: 500;
+          font-weight: 700;
           width: 100%;
-          text-align: center;
+          text-align: left;
           transition: all 0.3s ease;
           font-family: 'Poppins', sans-serif;
           letter-spacing: 0.5px;
           line-height: 1.5;
+          border-radius: 6px;
         }
 
         .dropdown a:hover,
@@ -444,11 +490,11 @@ export default function Header() {
           background: #15803d;
           transform: scale(1.02);
           outline: 2px solid #facc15;
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         }
 
         .dropdown a + a {
-          border-top: 1px solid rgba(255, 255, 255, 1);
+          border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .search-bar {
@@ -459,88 +505,146 @@ export default function Header() {
         }
 
         .search-bar input {
-          padding: 0.6rem 2rem 0.6rem 1rem;
-          border: 1px solid #1e293b;
+          padding: 0.7rem 2.5rem 0.7rem 1rem;
+          border: 2px solid #1e293b;
           border-radius: 25px;
-          font-size: 0.9rem;
-          width: 140px;
+          font-size: 1rem;
+          width: 160px;
           background: #ffffff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231e293b" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>') no-repeat 95% center;
-          transition: width 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+          transition: all 0.3s ease;
           font-family: 'Poppins', sans-serif;
-          font-weight: 400;
+          font-weight: 500;
         }
 
         .search-bar input:focus {
-          width: 160px;
+          width: 180px;
           border-color: #facc15;
           outline: none;
-          box-shadow: 0 0 8px rgba(250, 204, 21, 0.5);
+          box-shadow: 0 0 10px rgba(250, 204, 21, 0.6);
         }
 
-        .search-bar button {
-          padding: 0.6rem 1rem;
+        .apply-button {
+          padding: 0.7rem 1.5rem;
           background: linear-gradient(90deg, #16a34a, #22c55e);
           border: none;
           border-radius: 25px;
           cursor: pointer;
           color: #ffffff;
-          font-weight: 500;
-          transition: background 0.3s ease, transform 0.3s ease;
+          font-weight: 700;
+          font-size: 1rem;
+          transition: all 0.3s ease;
           font-family: 'Poppins', sans-serif;
-          letter-spacing: 0.5px;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          animation: pulse 2s infinite;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         }
 
-        .search-bar button:hover,
-        .search-bar button:focus {
+        .apply-button:hover,
+        .apply-button:focus {
           background: linear-gradient(90deg, #15803d, #16a34a);
-          transform: scale(1.05);
+          transform: scale(1.1);
           outline: 2px solid #facc15;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
         }
 
-        .login-btn {
-          padding: 0.6rem 1.2rem;
-          background: linear-gradient(90deg, #1e3a8a, #3b82f6);
-          border-radius: 25px;
-          color: #ffffff;
-          font-weight: 600;
-          transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-          font-family: 'Poppins', sans-serif;
-          letter-spacing: 0.5px;
-        }
-
-        .login-btn:hover,
-        .login-btn:focus {
-          transform: scale(1.05);
-          background: linear-gradient(90deg, #1e40af, #2563eb);
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-          outline: 2px solid #facc15;
+        @keyframes pulse {
+          0% {
+            transform: scale(1);
+            box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.7);
+          }
+          70% {
+            transform: scale(1.05);
+            box-shadow: 0 0 0 10px rgba(22, 163, 74, 0);
+          }
+          100% {
+            transform: scale(1);
+            box-shadow: 0 0 0 0 rgba(22, 163, 74, 0);
+          }
         }
 
         .hamburger {
           display: none;
-          font-size: 1.8rem;
+          font-size: 2rem;
           background: none;
           border: none;
           cursor: pointer;
           color: #1e3a8a;
-          transition: transform 0.3s ease, color 0.3s ease;
+          transition: all 0.3s ease;
           padding: 0.5rem;
+          border-radius: 50%;
+          z-index: 4100;
         }
 
         .hamburger:hover,
         .hamburger:focus {
           transform: rotate(90deg);
           color: #facc15;
+          background: rgba(30, 58, 138, 0.1);
+        }
+
+        .mobile-social-media {
+          display: none;
+          margin-top: auto;
+          padding: 1.5rem 0;
+          border-top: 2px solid rgba(255, 255, 255, 0.3);
+          justify-content: center;
+          gap: 1.2rem;
+        }
+
+        .mobile-social-media a {
+          margin: 0;
+        }
+
+        .mobile-social-media .social-icon {
+          width: 24px;
+          height: 24px;
+          transition: all 0.3s ease;
+          padding: 0.4rem;
+          border-radius: 50%;
+        }
+
+        .mobile-social-media a:hover .social-icon,
+        .mobile-social-media a:focus .social-icon {
+          fill: #facc15;
+          transform: scale(1.2);
+          background: rgba(255, 255, 255, 0.2);
+          box-shadow: 0 0 10px rgba(250, 204, 21, 0.5);
+        }
+
+        .developer-caption {
+          display: none;
+          margin-top: 1rem;
+          padding: 1.5rem 0;
+          text-align: center;
+          border-top: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .developer-caption a {
+          color: #ffffff;
+          font-size: 1rem;
+          font-weight: 700;
+          font-family: 'Poppins', sans-serif;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          text-transform: uppercase;
+          letter-spacing: 0.8px;
+        }
+
+        .developer-caption a:hover,
+        .developer-caption a:focus {
+          color: #facc15;
+          transform: scale(1.05);
         }
 
         @keyframes dropdownFade {
           0% {
             opacity: 0;
-            transform: translateX(-50%) scale(0.9) translateY(-15px) rotateX(-10deg);
+            transform: translateY(-15px) rotateX(-10deg);
           }
           100% {
             opacity: 1;
-            transform: translateX(-50%) scale(1) translateY(0) rotateX(0);
+            transform: translateY(0) rotateX(0);
           }
         }
 
@@ -548,6 +652,10 @@ export default function Header() {
           0% {
             transform: translateX(-100%);
             opacity: 0;
+          }
+          80% {
+            transform: translateX(10px);
+            opacity: 1;
           }
           100% {
             transform: translateX(0);
@@ -561,64 +669,76 @@ export default function Header() {
           }
 
           .search-bar input {
-            width: 120px;
-          }
-
-          .search-bar input:focus {
             width: 140px;
           }
 
+          .search-bar input:focus {
+            width: 160px;
+          }
+
           .logo {
-            width: 50px;
+            width: 60px;
           }
 
           .tagline {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
           }
 
           .social-icon {
-            width: 20px;
-            height: 20px;
+            width: 24px;
+            height: 24px;
           }
 
           .nav-link {
-            font-size: 1rem;
+            font-size: 1.1rem;
           }
 
           .dropdown a {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
           }
 
           .contact-info h3 {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
           }
 
           .contact-info a,
           .contact-info span {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
           }
         }
 
         @media (max-width: 768px) {
           .top-bar .container {
             flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
             gap: 0.5rem;
           }
 
           .contact-info {
             flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
             gap: 0.3rem;
+          }
+
+          .contact-details {
+            flex-direction: row;
+            align-items: center;
+            gap: 0.5rem;
           }
 
           .social-media {
             margin-top: 0.5rem;
-            gap: 0.8rem;
+            gap: 1rem;
           }
 
           .hamburger {
             display: block;
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 4100;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
           }
 
           .nav {
@@ -627,16 +747,17 @@ export default function Header() {
             position: fixed;
             top: 0;
             left: 0;
-            width: 75%;
-            max-width: 300px;
+            width: 80%;
+            max-width: 320px;
             height: 100vh;
-            background: linear-gradient(180deg, #fef3c7, #fef9c3);
-            padding: 2rem 1rem;
-            border-right: 3px solid #1e293b;
-            box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
-            animation: ${isMobileMenuOpen ? 'slideIn 0.3s ease-in-out' : 'none'};
+            background: linear-gradient(90deg, #ff0000ff, #c72525ff);
+            padding: 3.5rem 1.5rem 2rem;
+            border-right: 3px solid #ffffff;
+            box-shadow: 4px 0 15px rgba(0, 0, 0, 0.4);
+            animation: slideIn 0.4s ease-in-out;
             overflow-y: auto;
             z-index: 4000;
+            border-radius: 0 12px 12px 0;
           }
 
           .nav.open {
@@ -645,23 +766,44 @@ export default function Header() {
 
           .nav-item {
             width: 100%;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
           }
 
           .nav-link {
-            padding: 0.8rem;
-            font-size: 1rem;
+            padding: 1rem;
+            font-size: 1.1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-radius: 8px;
-            transition: background 0.3s ease, transform 0.3s ease;
+            border-radius: 10px;
+            color: #ffffff;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
           }
 
           .nav-link:hover,
           .nav-link:focus {
-            background: rgba(250, 204, 21, 0.1);
-            transform: translateX(5px);
+            background: #b91c1c;
+            transform: translateX(8px);
+            color: #facc15;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+          }
+
+          .nav-link[aria-current="page"] {
+            background: #b91c1c;
+            color: #facc15;
+            border-bottom: none;
+          }
+
+          .chevron {
+            color: #ffffff;
+          }
+
+          .nav-item:hover .chevron,
+          .nav-item:focus-within .chevron {
+            color: #facc15;
           }
 
           .dropdown-toggle {
@@ -671,15 +813,17 @@ export default function Header() {
           .dropdown {
             display: none;
             position: static;
-            border: 2px solid #1e293b;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: 2px solid #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             background: linear-gradient(180deg, #16a34a, #22c55e);
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            border-radius: 10px;
             z-index: 4000;
             margin-top: 0.5rem;
             margin-left: 0.5rem;
             width: calc(100% - 1rem);
+            flex-direction: column;
+            align-items: flex-start;
           }
 
           .dropdown.open {
@@ -687,19 +831,23 @@ export default function Header() {
           }
 
           .dropdown a {
-            padding: 0.6rem 1rem;
+            padding: 0.8rem 1rem;
             color: #ffffff;
-            border-radius: 6px;
+            font-weight: 700;
+            border-radius: 8px;
+            text-align: left;
+            font-size: 0.95rem;
           }
 
           .dropdown a:hover,
           .dropdown a:focus {
             background: #15803d;
             transform: translateX(5px);
+            color: #facc15;
           }
 
           .search-bar {
-            margin: 1rem 0;
+            margin: 1.5rem 0;
             width: 100%;
           }
 
@@ -707,88 +855,124 @@ export default function Header() {
             width: 100%;
             border-radius: 20px;
             padding: 0.8rem 2rem 0.8rem 1rem;
+            border: 2px solid #ffffff;
           }
 
           .search-bar input:focus {
             width: 100%;
           }
 
+          .apply-button {
+            width: 100%;
+            padding: 0.8rem;
+            font-size: 1rem;
+          }
+
+          .mobile-social-media {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-top: auto;
+            padding: 1.5rem 0;
+            border-top: 2px solid rgba(255, 255, 255, 0.3);
+          }
+
+          .mobile-social-media .social-icon {
+            width: 24px;
+            height: 24px;
+          }
+
+          .developer-caption {
+            display: block;
+            text-align: center;
+            padding: 1.5rem 0;
+            border-top: 2px solid rgba(255, 255, 255, 0.3);
+          }
+
           .logo {
-            width: 50px;
+            width: 60px;
           }
 
           .tagline {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
           }
 
           .social-icon {
-            width: 18px;
-            height: 18px;
+            width: 24px;
+            height: 24px;
           }
         }
 
         @media (max-width: 480px) {
           .logo {
-            width: 45px;
+            width: 50px;
           }
 
           .tagline {
-            font-size: 0.9rem;
+            font-size: 1rem;
           }
 
           .nav-link {
-            font-size: 0.9rem;
+            font-size: 1rem;
           }
 
           .dropdown a {
-            font-size: 0.85rem;
-          }
-
-          .login-btn {
-            padding: 0.5rem 1rem;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
           }
 
           .contact-info h3 {
-            font-size: 0.9rem;
+            font-size: 1rem;
           }
 
           .contact-info a,
           .contact-info span {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
           }
 
           .social-media {
-            gap: 0.6rem;
+            gap: 0.8rem;
           }
 
           .social-icon {
-            width: 16px;
-            height: 16px;
+            width: 20px;
+            height: 20px;
           }
 
           .search-bar input {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
           }
 
-          .search-bar button {
-            padding: 0.5rem;
-            font-size: 0.8rem;
+          .apply-button {
+            padding: 0.6rem;
+            font-size: 0.9rem;
+          }
+
+          .mobile-social-media .social-icon {
+            width: 20px;
+            height: 20px;
+          }
+
+          .developer-caption a {
+            font-size: 0.9rem;
           }
         }
 
         @media (max-width: 360px) {
           .contact-info h3 {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
           }
 
           .contact-info a,
           .contact-info span {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
           }
 
           .tagline {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
+          }
+
+          .developer-caption a {
+            font-size: 0.85rem;
           }
         }
       `}</style>
