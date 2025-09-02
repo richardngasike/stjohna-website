@@ -96,7 +96,7 @@ export default function Header() {
             </div>
             <div className="nav-item">
               <Link
-                href="/admissions"
+
                 className="nav-link dropdown-toggle"
                 aria-haspopup="true"
                 aria-expanded={openDropdown === 2}
@@ -113,7 +113,7 @@ export default function Header() {
             </div>
             <div className="nav-item">
               <Link
-                href="/programs"
+          
                 className="nav-link dropdown-toggle"
                 aria-haspopup="true"
                 aria-expanded={openDropdown === 1}
@@ -132,7 +132,7 @@ export default function Header() {
             </div>
             <div className="nav-item">
               <Link
-                href="/faculty-staff"
+               
                 className="nav-link dropdown-toggle"
                 aria-haspopup="true"
                 aria-expanded={openDropdown === 4}
@@ -148,7 +148,7 @@ export default function Header() {
             </div>
             <div className="nav-item">
               <Link
-                href="/quick-links"
+
                 className="nav-link dropdown-toggle"
                 aria-haspopup="true"
                 aria-expanded={openDropdown === 6}
