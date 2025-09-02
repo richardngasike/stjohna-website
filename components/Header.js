@@ -86,10 +86,13 @@ export default function Header() {
           </button>
           <nav className={`nav ${isMobileMenuOpen ? 'open' : ''}`} aria-label="Main navigation">
             <div className="nav-item">
-              <Link href="/" className="nav-link" aria-current="page">Home</Link>
+              <Link href="/" className="nav-link" aria-current="page">HOME</Link>
             </div>
             <div className="nav-item">
-              <Link href="/about" className="nav-link">About</Link>
+              <Link href="/about" className="nav-link">ABOUT</Link>
+            </div>
+            <div className="nav-item">
+              <Link href="/contact" className="nav-link">CONTACT</Link>
             </div>
             <div className="nav-item">
               <Link
@@ -99,7 +102,7 @@ export default function Header() {
                 aria-expanded={openDropdown === 1}
                 onClick={() => toggleMobileDropdown(1)}
               >
-                Academics <span className="chevron">▼</span>
+                ACADEMICS <span className="chevron">▼</span>
               </Link>
               <div className={`dropdown ${openDropdown === 1 ? 'open' : ''}`}>
                 <Link href="/programs/undergraduate">📚 Diploma Courses</Link>
@@ -116,7 +119,7 @@ export default function Header() {
                 aria-expanded={openDropdown === 2}
                 onClick={() => toggleMobileDropdown(2)}
               >
-                Admissions <span className="chevron">▼</span>
+                ADMISSIONS <span className="chevron">▼</span>
               </Link>
               <div className={`dropdown ${openDropdown === 2 ? 'open' : ''}`}>
                 <Link href="/admissions/apply">📝 How to Apply</Link>
@@ -135,19 +138,13 @@ export default function Header() {
                 aria-expanded={openDropdown === 4}
                 onClick={() => toggleMobileDropdown(4)}
               >
-                Faculty/Staff <span className="chevron">▼</span>
+                STAFF <span className="chevron">▼</span>
               </Link>
               <div className={`dropdown ${openDropdown === 4 ? 'open' : ''}`}>
                 <Link href="/faculty-staff/directory">👩‍🏫 Faculty Directory</Link>
                 <Link href="/faculty-staff/resources">📋 Staff Resources</Link>
                 <Link href="/faculty-staff/research">🔬 Research</Link>
               </div>
-            </div>
-            <div className="nav-item">
-                
-            </div>
-            <div className="nav-item">
-              <Link href="/contact" className="nav-link">Contact</Link>
             </div>
             <div className="nav-item">
               <Link
@@ -157,7 +154,7 @@ export default function Header() {
                 aria-expanded={openDropdown === 6}
                 onClick={() => toggleMobileDropdown(6)}
               >
-                Quick Links <span className="chevron">▼</span>
+                QUICK LINKS <span className="chevron">▼</span>
               </Link>
               <div className={`dropdown ${openDropdown === 6 ? 'open' : ''}`}>
                 <Link href="/library">📚 Library</Link>
@@ -190,7 +187,7 @@ export default function Header() {
             </div>
             <div className="developer-caption">
               <a href="https://richardngasike.co.ke" target="_blank" rel="noopener noreferrer">
-                DEVELOPER BY RICHARD NGASIKE
+                DEVELOPED BY RICHARD NGASIKE
               </a>
             </div>
           </nav>
