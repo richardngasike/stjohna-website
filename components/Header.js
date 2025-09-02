@@ -94,23 +94,7 @@ export default function Header() {
             <div className="nav-item">
               <Link href="/contact" className="nav-link">CONTACT</Link>
             </div>
-            <div className="nav-item">
-              <Link
-                href="/programs"
-                className="nav-link dropdown-toggle"
-                aria-haspopup="true"
-                aria-expanded={openDropdown === 1}
-                onClick={() => toggleMobileDropdown(1)}
-              >
-                ACADEMICS <span className="chevron">▼</span>
-              </Link>
-              <div className={`dropdown ${openDropdown === 1 ? 'open' : ''}`}>
-                <Link href="/programs/undergraduate">📚 Diploma Courses</Link>
-                <Link href="/programs/graduate">🎓 Certificate Courses</Link>
-                <Link href="/programs/online">💻 Short Courses</Link>
-                <Link href="/programs/certificates">🏅 Online Learning</Link>
-              </div>
-            </div>
+            
             <div className="nav-item">
               <Link
                 href="/admissions"
@@ -122,10 +106,27 @@ export default function Header() {
                 ADMISSIONS <span className="chevron">▼</span>
               </Link>
               <div className={`dropdown ${openDropdown === 2 ? 'open' : ''}`}>
-                <Link href="/admissions/apply">📝 How to Apply</Link>
-                <Link href="/admissions/tuition">💰 Tuition & Fees</Link>
-                <Link href="/admissions/scholarships">🎓 Scholarships</Link>
-                <Link href="/admissions/visit">🏫 Visit Campus</Link>
+                <Link href="/admissions">📝 How to Apply</Link>
+                <Link href="/admissions">💰 Tuition & Fees</Link>
+                <Link href="/admissions">🎓 Scholarships</Link>
+                <Link href="/contact">🏫 Visit Campus</Link>
+              </div>
+            </div>
+            <div className="nav-item">
+              <Link
+                href="/programs"
+                className="nav-link dropdown-toggle"
+                aria-haspopup="true"
+                aria-expanded={openDropdown === 1}
+                onClick={() => toggleMobileDropdown(1)}
+              >
+                ACADEMICS <span className="chevron">▼</span>
+              </Link>
+              <div className={`dropdown ${openDropdown === 1 ? 'open' : ''}`}>
+                <Link href="/programs">📚 Diploma Courses</Link>
+                <Link href="/programs">🎓 Certificate Courses</Link>
+                <Link href="/programs">💻 Short Courses</Link>
+                <Link href="/programs">🏅 Online Learning</Link>
               </div>
             </div>
             <div className="nav-item">
@@ -411,13 +412,13 @@ export default function Header() {
         .chevron {
           font-size: 0.9rem;
           transition: transform 0.3s ease;
-          color: #1e3a8a;
+          color: #ffffffff;
         }
 
         .nav-item:hover .chevron,
         .nav-item:focus-within .chevron {
           transform: rotate(180deg);
-          color: #facc15;
+          color: #944b4bff;
         }
 
         .nav-item {
@@ -481,39 +482,16 @@ export default function Header() {
           border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .search-bar {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          position: relative;
-        }
-
-        .search-bar input {
-          padding: 0.7rem 2.5rem 0.7rem 1rem;
-          border: 2px solid #1e293b;
-          border-radius: 25px;
-          font-size: 1rem;
-          width: 160px;
-          background: #ffffff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231e293b" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>') no-repeat 95% center;
-          transition: all 0.3s ease;
-          font-family: 'Poppins', sans-serif;
-          font-weight: 500;
-        }
-
-        .search-bar input:focus {
-          width: 180px;
-          border-color: #facc15;
-          outline: none;
-          box-shadow: 0 0 10px rgba(250, 204, 21, 0.6);
-        }
+      
 
         .apply-button {
-          padding: 0.7rem 1.5rem;
+          padding: 0.3rem 1.2rem;
           background: linear-gradient(90deg, #16a34a, #22c55e);
           border: none;
           border-radius: 25px;
           cursor: pointer;
           color: #ffffff;
+          outline: 2px solid #facc15;
           font-weight: 700;
           font-size: 1rem;
           transition: all 0.3s ease;
@@ -529,7 +507,7 @@ export default function Header() {
         .apply-button:focus {
           background: linear-gradient(90deg, #15803d, #16a34a);
           transform: scale(1.1);
-          outline: 2px solid #facc15;
+          outline: 2px solid #ff0000ff;
           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
         }
 
