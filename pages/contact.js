@@ -393,7 +393,7 @@ export default function Contact() {
         <section style={styles.section}>
           <h2>Find Us</h2>
           <p style={styles.sectionText}>
-            Visit us at our campus in Maralal Town, Nairobi. Below is a placeholder for our location map.
+            Visit us at our campus in Maralal Town, Kenya. Below is a placeholder for our location map.
           </p>
           <div style={styles.mapPlaceholder}>
             <p>Interactive Map Coming Soon</p>
@@ -434,7 +434,7 @@ export default function Contact() {
               <p>
                 Email:{' '}
                 <a
-                  href="mailto:admissions@stjohns.ac.ke"
+                  href="mailto:stjohnstrainingcollege@gmail.com"
                   style={{
                     ...styles.infoLink,
                     ...(hoveredElement === 'admissionsEmail' ? styles.linkHover : {}),
@@ -443,7 +443,7 @@ export default function Contact() {
                   onMouseLeave={handleMouseLeave}
                   aria-label="Email Admissions Office"
                 >
-                  admissions@stjohns.ac.ke
+                  stjohnstrainingcollege@gmail.com
                 </a>
               </p>
             </div>
@@ -474,7 +474,7 @@ export default function Contact() {
               <p>
                 Email:{' '}
                 <a
-                  href="mailto:academics@stjohns.ac.ke"
+                  href="mailto:stjohnstrainingcollege@gmail.com"
                   style={{
                     ...styles.infoLink,
                     ...(hoveredElement === 'academicsEmail' ? styles.linkHover : {}),
@@ -483,7 +483,7 @@ export default function Contact() {
                   onMouseLeave={handleMouseLeave}
                   aria-label="Email Academic Affairs"
                 >
-                  academics@stjohns.ac.ke
+                  stjohnstrainingcollege@gmail.com
                 </a>
               </p>
             </div>
@@ -514,7 +514,7 @@ export default function Contact() {
               <p>
                 Email:{' '}
                 <a
-                  href="mailto:students@stjohns.ac.ke"
+                  href="mailto:stjohnstrainingcollege@gmail.com"
                   style={{
                     ...styles.infoLink,
                     ...(hoveredElement === 'studentsEmail' ? styles.linkHover : {}),
@@ -523,7 +523,7 @@ export default function Contact() {
                   onMouseLeave={handleMouseLeave}
                   aria-label="Email Student Services"
                 >
-                  students@stjohns.ac.ke
+                  stjohnstrainingcollege@gmail.com
                 </a>
               </p>
             </div>
