@@ -353,7 +353,7 @@ export default function Header() {
         align-items: center;
         flex-wrap: nowrap;
         font-family: 'Poppins', sans-serif;
-        background: linear-gradient(90deg, #ff0000ff, #5eff00ff);
+        background: linear-gradient(90deg, #108b00ff, #338b00ff);
         color: #ffffff;
         border: 2px solid transparent;
         border-image: linear-gradient(90deg, #ff0000, #c72525) 1;
