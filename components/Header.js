@@ -42,7 +42,7 @@ export default function Header() {
             <div className="contact-details">
               <span>📞 <a href="tel:0720215715">0720215715</a></span>
               <span className="separator"> | </span>
-              <span>✉️ <a href="mailto:stjohnscollege@gmail.com">stjohnscollege@gmail.com</a></span>
+              <span>✉️ <a href="mailto:stjohnstrainingcollege@gmail.com"> click to email</a></span>
             </div>
           </div>
           <div className="social-media">
@@ -532,7 +532,7 @@ export default function Header() {
           background: none;
           border: none;
           cursor: pointer;
-          color: #1e3a8a;
+          color: #53b900ff;
           transition: all 0.3s ease;
           padding: 0.5rem;
           border-radius: 50%;
