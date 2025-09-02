@@ -165,7 +165,7 @@ export default function Header() {
               </div>
             </div>
             <div className="search-bar">
-              <Link href="/admissions/apply">
+              <Link href="/admissions">
                 <button className="apply-button" aria-label="Apply Now">APPLY</button>
               </Link>
             </div>
