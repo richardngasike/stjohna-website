@@ -9,7 +9,9 @@ export default function Header() {
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
-    setOpenDropdown(null);
+    if (isMobileMenuOpen) {
+      setOpenDropdown(null);
+    }
   };
 
   const toggleMobileDropdown = (index) => {
@@ -82,7 +84,7 @@ export default function Header() {
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMobileMenuOpen}
           >
-            {isMobileMenuOpen ? '✖' : '☰'}
+            <span className="hamburger-icon">{isMobileMenuOpen ? '✕' : '☰'}</span>
           </button>
           <nav className={`nav ${isMobileMenuOpen ? 'open' : ''}`} aria-label="Main navigation">
             <div className="nav-item">
@@ -95,50 +97,46 @@ export default function Header() {
               <Link href="/contact" className="nav-link">CONTACT</Link>
             </div>
             <div className="nav-item">
-              <Link
-                href="/admissions"
+              <button
                 className="nav-link dropdown-toggle"
                 aria-haspopup="true"
                 aria-expanded={openDropdown === 2}
                 onClick={() => toggleMobileDropdown(2)}
               >
                 ADMISSIONS <span className="chevron">▼</span>
-              </Link>
+              </button>
               <div className={`dropdown ${openDropdown === 2 ? 'open' : ''}`}>
-                <Link href="/admissions">📝 How to Apply</Link>
-                <Link href="/admissions">💰 Tuition & Fees</Link>
-                <Link href="/admissions">🎓 Scholarships</Link>
-                <Link href="/contact">🏫 Visit Campus</Link>
+                <Link href="/admissions/how-to-apply">📝 How to Apply</Link>
+                <Link href="/admissions/tuition-fees">💰 Tuition & Fees</Link>
+                <Link href="/admissions/scholarships">🎓 Scholarships</Link>
+                <Link href="/contact/visit-campus">🏫 Visit Campus</Link>
               </div>
             </div>
             <div className="nav-item">
-              <Link
-                href="/programs"
+              <button
                 className="nav-link dropdown-toggle"
                 aria-haspopup="true"
                 aria-expanded={openDropdown === 1}
                 onClick={() => toggleMobileDropdown(1)}
               >
                 ACADEMICS <span className="chevron">▼</span>
-              </Link>
+              </button>
               <div className={`dropdown ${openDropdown === 1 ? 'open' : ''}`}>
-                <Link href="/programs">📚 Diploma Courses</Link>
-                <Link href="/programs">🎓 Certificate Courses</Link>
-                <Link href="/programs">💻 Short Courses</Link>
-                <Link href="/programs">🏅 Online Learning</Link>
+                <Link href="/programs/diploma-courses">📚 Diploma Courses</Link>
+                <Link href="/programs/certificate-courses">🎓 Certificate Courses</Link>
+                <Link href="/programs/short-courses">💻 Short Courses</Link>
+                <Link href="/programs/online-learning">🏅 Online Learning</Link>
               </div>
             </div>
-            
             <div className="nav-item">
-              <Link
-                href="/faculty-staff"
+              <button
                 className="nav-link dropdown-toggle"
                 aria-haspopup="true"
                 aria-expanded={openDropdown === 4}
                 onClick={() => toggleMobileDropdown(4)}
               >
                 STAFF <span className="chevron">▼</span>
-              </Link>
+              </button>
               <div className={`dropdown ${openDropdown === 4 ? 'open' : ''}`}>
                 <Link href="/faculty-staff/directory">👩‍🏫 Faculty Directory</Link>
                 <Link href="/faculty-staff/resources">📋 Staff Resources</Link>
@@ -146,15 +144,14 @@ export default function Header() {
               </div>
             </div>
             <div className="nav-item">
-              <Link
-                href="/quick-links"
+              <button
                 className="nav-link dropdown-toggle"
                 aria-haspopup="true"
                 aria-expanded={openDropdown === 6}
                 onClick={() => toggleMobileDropdown(6)}
               >
                 QUICK LINKS <span className="chevron">▼</span>
-              </Link>
+              </button>
               <div className={`dropdown ${openDropdown === 6 ? 'open' : ''}`}>
                 <Link href="/library">📚 Library</Link>
                 <Link href="/calendar">📅 Academic Calendar</Link>
@@ -288,7 +285,7 @@ export default function Header() {
         header {
           position: sticky;
           top: 0;
-          z-index: 2500;
+          z-index: 3000;
           background: linear-gradient(90deg, #fef3c7, #fef9c3);
           transition: transform 0.3s ease-in-out;
           font-family: 'Poppins', sans-serif;
@@ -357,7 +354,7 @@ export default function Header() {
           padding: 1rem;
           border-top: 2px solid #1e293b;
           box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
-          z-index: 1000;
+          z-index: 3100;
           transform: translateY(100%);
           transition: transform 0.3s ease-in-out;
         }
@@ -381,6 +378,10 @@ export default function Header() {
           text-transform: uppercase;
           transition: all 0.3s ease;
           display: block;
+          background: none;
+          border: none;
+          width: 100%;
+          cursor: pointer;
         }
 
         .nav-link:hover,
@@ -400,6 +401,7 @@ export default function Header() {
         .dropdown-toggle {
           display: flex;
           align-items: center;
+          justify-content: space-between;
           gap: 0.5rem;
           position: relative;
         }
@@ -411,9 +413,10 @@ export default function Header() {
         }
 
         .nav-item:hover .chevron,
-        .nav-item:focus-within .chevron {
+        .nav-item:focus-within .chevron,
+        .nav-item.active .chevron {
           transform: rotate(180deg);
-          color: #944b4bff;
+          color: #facc15;
         }
 
         .dropdown {
@@ -424,7 +427,7 @@ export default function Header() {
           background: linear-gradient(180deg, #ff0000, #c72525);
           padding: 0.75rem 1rem;
           border-radius: 10px;
-          z-index: 1000;
+          z-index: 3100;
           margin-top: 0.5rem;
           margin-left: 0.5rem;
           width: calc(100% - 1rem);
@@ -500,21 +503,30 @@ export default function Header() {
 
         .hamburger {
           display: none;
-          font-size: 2rem;
           background: none;
           border: none;
           cursor: pointer;
-          color: #53b900ff;
-          transition: all 0.3s ease;
           padding: 0.5rem;
           border-radius: 50%;
-          z-index: 1100;
+          z-index: 3200;
+          width: 48px;
+          height: 48px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
-        .hamburger:hover,
-        .hamburger:focus {
-          transform: rotate(90deg);
+        .hamburger-icon {
+          font-size: 2rem;
+          color: #53b900ff;
+          transition: color 0.3s ease, transform 0.3s ease;
+          display: inline-block;
+        }
+
+        .hamburger:hover .hamburger-icon,
+        .hamburger:focus .hamburger-icon {
           color: #facc15;
+          transform: scale(1.1);
           background: rgba(30, 58, 138, 0.1);
         }
 
@@ -600,7 +612,7 @@ export default function Header() {
 
         @media (max-width: 768px) {
           .hamburger {
-            display: block;
+            display: flex;
           }
 
           .nav {
@@ -614,7 +626,7 @@ export default function Header() {
             padding: 1rem;
             border-top: 2px solid #1e293b;
             box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
+            z-index: 3100;
             transform: translateY(100%);
             transition: transform 0.3s ease-in-out;
           }
@@ -663,7 +675,8 @@ export default function Header() {
           }
 
           .nav-item:hover .chevron,
-          .nav-item:focus-within .chevron {
+          .nav-item:focus-within .chevron,
+          .nav-item.active .chevron {
             color: #facc15;
           }
 
@@ -679,7 +692,7 @@ export default function Header() {
             background: linear-gradient(180deg, #ff0000, #c72525);
             padding: 0.75rem 1rem;
             border-radius: 10px;
-            z-index: 1000;
+            z-index: 3100;
             margin-top: 0.5rem;
             margin-left: 0.5rem;
             width: calc(100% - 1rem);
@@ -796,6 +809,7 @@ export default function Header() {
             box-shadow: none;
             transform: none;
             transition: none;
+            z-index: 3100;
           }
           .nav-item {
             border-bottom: none;
@@ -819,7 +833,7 @@ export default function Header() {
             border-radius: 12px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
             min-width: 260px;
-            z-index: 4000;
+            z-index: 3100;
             padding: 0.75rem 0;
             transform-origin: top;
             animation: dropdownFade 0.3s ease-in-out;
