@@ -128,8 +128,7 @@ export default function Header() {
                 <Link href="/programs">🏅 Online Learning</Link>
               </div>
             </div>
-            <div className="nav-item">
-            </div>
+            
             <div className="nav-item">
               <Link
                 href="/faculty-staff"
