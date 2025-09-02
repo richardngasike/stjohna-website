@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { useState } from 'react';
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaTwitter, FaInstagram, FaQuestionCircle } from 'react-icons/fa';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
@@ -70,8 +71,8 @@ export default function Contact() {
       answer: 'Our office is open Monday to Friday, 8:00 AM to 5:00 PM, and Saturday, 9:00 AM to 1:00 PM.',
     },
     {
-      question: 'Where is the college located?',
-      answer: 'Our college main campus is located at Maralal town on your way to Cereal Board, next to Kirisia Police station.',
+      question: 'where is college located?',
+      answer: 'Our college main campus is located at Maralal town on your way to CerealBoard, next to Kirisia Police station.',
     },
   ];
 
@@ -218,6 +219,7 @@ export default function Contact() {
           </p>
           <div style={styles.infoGrid}>
             <div style={styles.infoItem}>
+              <FaEnvelope style={styles.infoIcon} />
               <p>
                 <strong>Email:</strong>{' '}
                 <a
@@ -235,6 +237,7 @@ export default function Contact() {
               </p>
             </div>
             <div style={styles.infoItem}>
+              <FaPhone style={styles.infoIcon} />
               <p>
                 <strong>Phone:</strong>{' '}
                 <a
@@ -288,6 +291,7 @@ export default function Contact() {
               </p>
             </div>
             <div style={styles.infoItem}>
+              <FaMapMarkerAlt style={styles.infoIcon} />
               <p>
                 <strong>Address:</strong> Cereal Board Road, Maralal Town, Nairobi, Kenya
               </p>
@@ -307,7 +311,10 @@ export default function Contact() {
                   onMouseLeave={handleMouseLeave}
                   aria-label="Follow on Facebook"
                 >
-                  Facebook
+                  <FaFacebook style={{
+                    ...styles.socialIcon,
+                    ...(hoveredElement === 'facebook' ? styles.iconHover : {}),
+                  }} />
                 </a>
                 <a
                   href="https://twitter.com"
@@ -321,7 +328,10 @@ export default function Contact() {
                   onMouseLeave={handleMouseLeave}
                   aria-label="Follow on Twitter"
                 >
-                  Twitter
+                  <FaTwitter style={{
+                    ...styles.socialIcon,
+                    ...(hoveredElement === 'twitter' ? styles.iconHover : {}),
+                  }} />
                 </a>
                 <a
                   href="https://instagram.com"
@@ -335,7 +345,10 @@ export default function Contact() {
                   onMouseLeave={handleMouseLeave}
                   aria-label="Follow on Instagram"
                 >
-                  Instagram
+                  <FaInstagram style={{
+                    ...styles.socialIcon,
+                    ...(hoveredElement === 'instagram' ? styles.iconHover : {}),
+                  }} />
                 </a>
               </div>
             </div>
@@ -362,6 +375,7 @@ export default function Contact() {
                   aria-expanded={faqOpen[index]}
                   aria-controls={`faq-answer-${index}`}
                 >
+                  <FaQuestionCircle style={styles.faqIcon} />
                   {faq.question}
                   <span style={styles.faqToggle}>{faqOpen[index] ? '−' : '+'}</span>
                 </button>
@@ -522,14 +536,16 @@ export default function Contact() {
 }
 
 const styles = {
+  // Main container
   main: {
     padding: '2rem 0',
-    backgroundColor: '#f9f9f9',
+    backgroundColor: '#f9f9f9', // Matches global.css body background
   },
+  // Cover photo section
   coverSection: {
     position: 'relative',
     width: '100%',
-    height: '70vh',
+    height: '70vh', // Matches global.css carousel height
     overflow: 'hidden',
     borderRadius: '10px',
     marginBottom: '3rem',
@@ -537,10 +553,10 @@ const styles = {
   coverImage: {
     width: '100%',
     height: '100%',
-    backgroundImage: 'url(/contact-cover.jpg)',
+    backgroundImage: 'url(/contact-cover.jpg)', // Image in public folder
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    filter: 'brightness(70%)',
+    filter: 'brightness(70%)', // Darken for readability, matches global.css
   },
   coverTitle: {
     position: 'absolute',
@@ -548,28 +564,30 @@ const styles = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     color: '#ffffff',
-    fontSize: '3rem',
+    fontSize: '3rem', // Matches global.css carousel-text h1
     fontWeight: '700',
     textAlign: 'center',
-    textShadow: '0 2px 4px rgba(0, 0, 0, 0.5)',
-    animation: 'floatText 1.5s ease-in-out',
+    textShadow: '0 2px 4px rgba(0, 0, 0, 0.5)', // Matches global.css
+    animation: 'floatText 1.5s ease-in-out', // Matches global.css animation
   },
   section: {
     padding: '3rem 0',
-    background: 'linear-gradient(180deg, #f0f4f8, #e2e8f0)',
+    background: 'linear-gradient(180deg, #f0f4f8, #e2e8f0)', // Softer gradient
   },
   sectionText: {
     fontSize: '1.1rem',
     color: '#4b5563',
     marginBottom: '1.5rem',
   },
+
+  // Form styles
   form: {
     display: 'flex',
     flexDirection: 'column',
     gap: '1.5rem',
     maxWidth: '600px',
     margin: '0 auto',
-    backgroundColor: '#f8fafc',
+    backgroundColor: '#f8fafc', // Off-white for contrast
     padding: '1.5rem',
     borderRadius: '8px',
     boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
@@ -664,6 +682,8 @@ const styles = {
     textAlign: 'center',
     marginTop: '1rem',
   },
+
+  // Contact info styles
   infoGrid: {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
@@ -671,11 +691,18 @@ const styles = {
     marginTop: '1.5rem',
   },
   infoItem: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.75rem',
     fontSize: '1.1rem',
     backgroundColor: '#f8fafc',
     padding: '1rem',
     borderRadius: '8px',
     border: '1px solid #e2e8f0',
+  },
+  infoIcon: {
+    fontSize: '1.25rem',
+    color: '#28a745',
   },
   infoLink: {
     color: '#28a745',
@@ -697,9 +724,15 @@ const styles = {
   },
   socialLink: {
     color: '#28a745',
-    textDecoration: 'none',
-    fontSize: '1rem',
   },
+  socialIcon: {
+    fontSize: '1.5rem',
+  },
+  iconHover: {
+    color: '#218838',
+  },
+
+  // FAQ styles
   faqContainer: {
     maxWidth: '800px',
     margin: '0 auto',
@@ -729,6 +762,11 @@ const styles = {
   faqQuestionHover: {
     background: '#cbd5e1',
   },
+  faqIcon: {
+    fontSize: '1.25rem',
+    color: '#28a745',
+    marginRight: '0.75rem',
+  },
   faqToggle: {
     fontSize: '1.25rem',
     fontWeight: 'bold',
@@ -740,6 +778,8 @@ const styles = {
     backgroundColor: '#f8fafc',
     borderTop: '1px solid #e2e8f0',
   },
+
+  // Map placeholder styles
   mapPlaceholder: {
     height: '300px',
     background: '#e5e7eb',
@@ -753,6 +793,8 @@ const styles = {
     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
     border: '1px solid #e2e8f0',
   },
+
+  // Team contacts styles
   sectionGrid: {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
