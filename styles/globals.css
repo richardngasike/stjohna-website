@@ -1,4 +1,3 @@
-/* styles/global.css */
 * {
   margin: 0;
   padding: 0;
@@ -38,26 +37,29 @@ p {
 
 a {
   text-decoration: none;
-  color: rgb(255, 255, 255);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 400;
+  
 }
 
-button {
+button:not(.apply-button) {
   padding: 0.75rem 1.5rem;
-  background: linear-gradient(45deg, #28a745, #38d57a);
-  color: #fff9e6;
+  background: linear-gradient(45deg, #3182ce, #63b3ed);
+  color: #ffffff;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
   font-size: 1rem;
   transition: background 0.3s ease, transform 0.3s ease;
   font-family: 'Roboto', sans-serif;
 }
 
-button:hover,
-button:focus {
-  background: linear-gradient(45deg, #218838, #2ecc71);
+button:not(.apply-button):hover,
+button:not(.apply-button):focus {
+  background: linear-gradient(45deg, #2b6cb0, #4299e1);
   transform: translateY(-2px);
-  outline: 2px solid #ffeb3b;
+  outline: none;
 }
 
 /* Carousel Styles */
@@ -66,7 +68,7 @@ button:focus {
   width: 100%;
   height: 70vh;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 8px;
   margin-bottom: 3rem;
 }
 
@@ -80,7 +82,6 @@ button:focus {
   transition: opacity 1s ease-in-out;
 }
 
-
 .carousel-slide.active {
   opacity: 1;
 }
@@ -89,9 +90,8 @@ button:focus {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(70%);
+  filter: brightness(80%);
 }
-
 
 .carousel-text {
   position: absolute;
@@ -105,10 +105,9 @@ button:focus {
 }
 
 .carousel-text h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 1rem;
 }
-
 
 @keyframes floatText {
   0% {
@@ -124,7 +123,7 @@ button:focus {
 /* Section Styles */
 .section {
   padding: 3rem 0;
-  background: linear-gradient(180deg, #ffffff, #f0f4f8);
+  background: #ffffff;
 }
 
 .section-grid {
@@ -137,8 +136,8 @@ button:focus {
 .card {
   background: white;
   padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease;
 }
@@ -205,7 +204,7 @@ button:focus {
     font-size: 1rem;
   }
 
-  button {
+  button:not(.apply-button) {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
   }
