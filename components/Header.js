@@ -97,6 +97,9 @@ export default function Header() {
               <Link href="/contact" className="nav-link">CONTACT</Link>
             </div>
             <div className="nav-item">
+              <Link href="/programs">COURSES</Link>
+            </div>
+            <div className="nav-item">
               <button
                 className="nav-link dropdown-toggle"
                 aria-haspopup="true"
@@ -106,28 +109,13 @@ export default function Header() {
                 ADMISSIONS <span className="chevron">▼</span>
               </button>
               <div className={`dropdown ${openDropdown === 2 ? 'open' : ''}`}>
-                <Link href="/admissions/how-to-apply">📝 How to Apply</Link>
-                <Link href="/admissions/tuition-fees">💰 Tuition & Fees</Link>
-                <Link href="/admissions/scholarships">🎓 Scholarships</Link>
-                <Link href="/contact/visit-campus">🏫 Visit Campus</Link>
+                <Link href="/admissions">📝 How to Apply</Link>
+                <Link href="/admissions">💰 Tuition & Fees</Link>
+                <Link href="/admissions">🎓 Scholarships</Link>
+                <Link href="/contact">🏫 Visit Campus</Link>
               </div>
             </div>
-            <div className="nav-item">
-              <button
-                className="nav-link dropdown-toggle"
-                aria-haspopup="true"
-                aria-expanded={openDropdown === 1}
-                onClick={() => toggleMobileDropdown(1)}
-              >
-                ACADEMICS <span className="chevron">▼</span>
-              </button>
-              <div className={`dropdown ${openDropdown === 1 ? 'open' : ''}`}>
-                <Link href="/programs/diploma-courses">📚 Diploma Courses</Link>
-                <Link href="/programs/certificate-courses">🎓 Certificate Courses</Link>
-                <Link href="/programs/short-courses">💻 Short Courses</Link>
-                <Link href="/programs/online-learning">🏅 Online Learning</Link>
-              </div>
-            </div>
+            
             <div className="nav-item">
               <button
                 className="nav-link dropdown-toggle"
