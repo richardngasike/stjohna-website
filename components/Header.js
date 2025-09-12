@@ -97,7 +97,7 @@ export default function Header() {
               <Link href="/contact" className="nav-link">CONTACT</Link>
             </div>
             <div className="nav-item">
-              <Link href="/coursesandprograms">COURSES</Link>
+              <Link href="/">COURSES</Link>
             </div>
             <div className="nav-item">
               <button
@@ -815,5 +815,6 @@ export default function Header() {
   );
 
 }
+
 
 
