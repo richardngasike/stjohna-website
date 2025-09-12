@@ -10,7 +10,7 @@ export default function Footer() {
             <h3>About St Johns Training College</h3>
             <p>
               St Johns Training College in Maralal, Samburu, is dedicated to empowering futures through quality education
-              and innovative programs.
+              and innovative programs around Samburu and its environs.
             </p>
             <Link href="/" className="tagline-link">
               Empowering Futures
@@ -19,19 +19,18 @@ export default function Footer() {
           <section className="footer-section quick-links">
             <h3>Quick Links</h3>
             <nav aria-label="Footer navigation">
-              <Link href="/programs/undergraduate">Undergraduate Programs</Link>
-              <Link href="/admissions/apply">How to Apply</Link>
-              <Link href="/student-life/clubs">Clubs & Organizations</Link>
-              <Link href="/faculty-staff/directory">Faculty Directory</Link>
-              <Link href="/alumni/association">Alumni Association</Link>
-              <Link href="/library">Library</Link>
+              <Link href="/programs">Programs</Link>
+              <Link href="/admissions">How to Apply</Link>
+              <Link href="/about">About Us</Link>
+              <Link href="/contact">Contact Us</Link>
+              <Link href="/">Home</Link>
             </nav>
           </section>
           <section className="footer-section contact-info">
             <h3>Contact Us</h3>
             <p>📍 Maralal Town, Samburu, Kenya</p>
             <p>📞 <a href="tel:0718959781">0718959781</a></p>
-            <p>✉️ <a href="mailto:stjohnscollege@gmail.com">stjohnscollege@gmail.com</a></p>
+            <p>✉️ <a href="mailto:stjohnscollege@gmail.com">stjohnstrainingcollege@gmail.com</a></p>
             <div className="social-media">
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
                 <svg className="social-icon" viewBox="0 0 24 24" fill="#fff9e6" xmlns="http://www.w3.org/2000/svg">
